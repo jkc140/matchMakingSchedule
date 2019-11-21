@@ -1,0 +1,30 @@
+Today, we met with our client Mrs. Luce to discuss the program she wishes to give us. She required a program to create a schedule for her softball league
+The information we got was
+- there is 2 times they play
+    - 6 and 7 pm
+- 5 parks
+- so a total of 10 games
+
+- if there is an odd number of teams, the left out team would get a by or another team will play back to back
+  - the back to back team would require to be at the same park
+  
+- there will be 1 game a week on wednesday starting in May and going to August
+  - roughly 16 games a week
+  
+- there will be a max number of 20 teams
+- she wished tht there will be no replay teams
+- she asked for parameters for specific request
+  - ex certain parks 
+
+- any format is fine, but she would prefer a calender 
+  
+  
+  After meeting the client our team began talking amoungst ourselves discussing how we would like to do it
+  - we talked about what imports we may need
+    - GUI
+    - Reading and writing files
+    
+ - what a start menu would look like
+    - 2 options 
+      - create a new schedule
+      - view schedule
