@@ -1,0 +1,18 @@
+classes
+  - team class <-- class for all the different teams
+    - team name
+    - preferences
+  - matching class <-- place to hold all methods for creating the schedule
+    - randomization <-- teams playing agaist eachother
+    - park location
+    - time of game
+    - no repeats
+    - take in preferences
+    PUT INTO TEAM CLASS ???    
+  - GUI class <-- place to create all the graphics
+    - subclass would be output format <-- how the match making would be displayed
+        - calender
+          - may have to import calender class
+        - table 
+        - other
+  
