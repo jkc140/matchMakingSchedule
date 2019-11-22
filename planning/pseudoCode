@@ -14,6 +14,7 @@ Program start:
     Create a variable and store the team name
     Create a variable and store the team parameters <-- one variable per parameter ?? <-- use array ??
     Create an object with parameters for team name and parameters
+    Store object in an array that is the length of the number of teams
   Loop 1
     This loops for the number of teams
     If there is less teams than user inputted
@@ -28,15 +29,41 @@ Program start:
   Loop 2
     If there is two many 
       Increase the array length by the number of parks <-- search the number of [] ?? 
-        problem is that [] is also used for teams so there will always be too many
+        //problem is that [] is also used for teams so there will always be too many
       Tell user that is more parks than said and that the new number of parks are #
     If there is two little 
       Delete extra/blank spots in array
       Tell user that there is too little parks entered and the number of parks are #
-    
+  Create variable and store the number of games that will be played that season
+  Create a variable and store the start date of the game <-- string
+  Create a variable and store the end date of the game <-- string
+  
+  Loop 3 <-- loops for the number of matches  
   Call randomizatiton class
-  
-  
+    //with the parameters of Array of Teams, Array of parks, number of games, 
+  Loop 4
+    //for loop
+    Check
+      See if x is already taken
+        array of taken that is a boolean and length of the number of teams, when team is taken, whether random num genererator or the for loop it will set the slot of that team to be true
+        Continues <-- as that team is alread assigned
+    Generate a random number
+    Check
+      See if team[randNum] is already taken
+        array of taken that is a boolean and length of the number of teams, when team is taken, whether random num genererator or the for loop it will set the slot of that team to be true
+      see if randNum = x
+      Repeats if check is failled
+    Set opponent of team[x] be team[randNum]
+    Check
+       see if team[x] has already played team[randNum]
+       if it is
+          repeats if it fails
+            set taken[randNum] to be false
+  Loop 4
+    //ends when all of taken is true
+  call function to select park 
+  loop 5
+
   
   
   
@@ -44,7 +71,7 @@ Program start:
   ASK USER FOR NAME OF SCHEDULE ??
   HAVE PROGRAM STORE MULTIPLE SCHEDULES ??
   HAVE A SEARCH FUNCTION FOR EACH TEAM AND DISPLAY TIME OF GAME, LOCATION OF GAME, AND OPPONENT ??
-    
+  
     
     
     
