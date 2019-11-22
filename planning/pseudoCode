@@ -1,0 +1,74 @@
+Program start:
+  Display user menu
+    - Create new schedule
+    - view schedule
+    - rules/file formatting
+ If User does create new schedule
+  Ask user for the number of teams competeting ??
+  Ask user for the number of parks being used??
+  Ask user for name of the file being inputed
+    name of folder containing the team names, their preferences and park location
+  Store the name as a variable and use that variable to open the file
+  Loop 1
+    Read the file
+    Create a variable and store the team name
+    Create a variable and store the team parameters <-- one variable per parameter ?? <-- use array ??
+    Create an object with parameters for team name and parameters
+  Loop 1
+    This loops for the number of teams
+    If there is less teams than user inputted
+      number of teams visible is different then number of teams said there would be remove the remaining empty spots from the array. 
+      Tell the user that there is an error and say that there is actual # of team
+    If there is more
+      Increase array of teams <-- have the program look for the number of [] in the program
+      Tell the user that there is more than the said number of team and the actual number of teams is #. 
+  Loop 2
+    Create an array that is as long as the number of parks being used 
+    Insert a team name into each slot of the array
+  Loop 2
+    If there is two many 
+      Increase the array length by the number of parks <-- search the number of [] ?? 
+        problem is that [] is also used for teams so there will always be too many
+      Tell user that is more parks than said and that the new number of parks are #
+    If there is two little 
+      Delete extra/blank spots in array
+      Tell user that there is too little parks entered and the number of parks are #
+    
+  Call randomizatiton class
+  
+  
+  
+  
+  
+  
+  ASK USER FOR NAME OF SCHEDULE ??
+  HAVE PROGRAM STORE MULTIPLE SCHEDULES ??
+  HAVE A SEARCH FUNCTION FOR EACH TEAM AND DISPLAY TIME OF GAME, LOCATION OF GAME, AND OPPONENT ??
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+File format
+  - team names separated by / ??
+  - team preferences separated by /
+  - all of one team info is together
+  - park name are separated by / 
+  - [] used to divide information 
+  - {} used to contain one team info ??
+  
+  ex:
+  {
+    [/The Beavers/] <-- team name
+    [/Panda Park/Gatineau Park/]  <-- preferences
+  }
+    
+    
