@@ -1,0 +1,11 @@
+make a search function so teams can get a list of all their matches and the times etc
+have an array containing each object and use the search method (probably sequential as binary compares numbers) to find the name of the team
+Then have it display all the data
+  - each object will have internal arrays holding match times, location, etc
+  - one 2d array [a][b],
+      - a (first slot): number of matches
+      - b (second slot): time, location, opponent, date (4 slots) 
+      
+      
+      - SHOULD DATE BE IN A AS IT IS THE MATCH NUMBER ?? 
+          - HAVE AN ARRAY OF MATCH DATES AND CONVERT MATCH NUMBER TO THE MATCH DATE ???
