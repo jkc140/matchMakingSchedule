@@ -105,9 +105,21 @@ Program start:
   loop 10//loop for the number of parks 
     //check preferences
 
-
-  loop  <-- setting time 
-  loop 
+  //randomizing Time function
+  2d array[a][b] for time preferences
+    // a <-- number of parks, b <-- 20 cause there is a max of 20 teams
+  loop 11 <-- setting prefences
+    loop 12 <-- for loop
+       check to see if team[x] is equal to time[y]
+       add it to the array of time preferences
+        //x is variable in loop 12 for loop (team)
+        //y is the variable in loop 11 (time)
+    loop 12 //loop for number of teams
+  loop 11 // loop for number of times (twice)
+  
+  loop   <-- setting time 
+    
+  loop  <-- loop for the number of parks
   
   
   
