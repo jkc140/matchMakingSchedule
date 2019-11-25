@@ -61,26 +61,51 @@ Program start:
             set taken[randNum] to be false
   Loop 4
     //ends when all of taken is true
-  call function to select park 
-  loop 5 <-- setting the game location
-    loop 6 <-- loop for the number pairs (the two teams facing eachother)
-      loop 7 <-- loop twice
-        if team[x] has prefence
-        
-        have list of parks and which teams have a preference there
-        loop for each park
-          randomly  select a team the has a preference there
-          check to see if opponent has a preference park
-            randomly select 
-        
-        
-        
-        
-      loop 7
-    loop 6
+    
+    
+  call function to select park
+  create 2d array[a][b] to hold park preferences
+    //a <-- number of parks, b <-- max number of team
+  loop 5 ssigning values to park preference
+    c =0; <-- variable to hold the number of times called/number of teams have prefernce for
+    loop 6 //checking for team preferences
+      if team[y] has preferences for park[x]
+        park[x][c]
+        c++;
+      else do nothing
+    loop 6//loop number of teams
+  loop 5 //loop the number of parks
+  loop 7-- assigning team preferenced choices for all mathces
+    loop 8 <-- assigning which team gets preferenced choice for one time (ex at 6 or at 7)
+      randomize who gets the prefernce for that park
+      remove that team from all preference list 
+      have array for if park is selected (ex parkSelect[a][b]) and set it to true
+        //a is number of parks, b is 2 for the two times
+        create a temp preference list as it may reset later (if it loses its preference) ???
+    loop 8 //loop for number of parks
+  loop 7 //loop twice for there is two times the matches are playing
+  loop 9 <-- determine if opponents both have prefernces
+    if both teams have gotten preferences
+      ranomly select one of the teams
+      remove the prefernce for the losing team/unselected team
+      set both teams as that park
+      recall the prefence choices method/reselect a team for that park out of prefences
+        //make method to do prefence choice for single park ??
+        // make it so that the method to d
+    if one team have gotten prefernces
+      set both teams as that park
+    if none
+      do nothing
+  loop 9 //loop for number of parks 
+  loop 10//check to see if any parks don't have a team
+    if park has open slot
+      randomly select a team that does not have a park assigned
+    else
+      do nothing
+  loop 10//loop for the number of parks 
     //check preferences
-    if team
-  loop 5
+
+
   loop  <-- setting time 
   loop 
   
