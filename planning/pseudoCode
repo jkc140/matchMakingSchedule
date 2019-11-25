@@ -41,7 +41,7 @@ Program start:
   Loop 3 <-- loops for the number of matches  
   Call randomizatiton class
     //with the parameters of Array of Teams, Array of parks, number of games, 
-  Loop 4
+  Loop 4 <-- randomizing opponents 
     //for loop
     Check
       See if x is already taken
@@ -62,16 +62,41 @@ Program start:
   Loop 4
     //ends when all of taken is true
   call function to select park 
+  loop 5 <-- setting the game location
+    loop 6 <-- loop for the number pairs (the two teams facing eachother)
+      loop 7 <-- loop twice
+        if team[x] has prefence
+        
+        have list of parks and which teams have a preference there
+        loop for each park
+          randomly  select a team the has a preference there
+          check to see if opponent has a preference park
+            randomly select 
+        
+        
+        
+        
+      loop 7
+    loop 6
+    //check preferences
+    if team
   loop 5
-
+  loop  <-- setting time 
+  loop 
   
   
+  
+  Save park location to array of matches (see future ideas)
+  Save opponent to array of matches (see future ideas)
+  Save game time to array of matches (see future ideas)
+  loop 3
   
   
   ASK USER FOR NAME OF SCHEDULE ??
   HAVE PROGRAM STORE MULTIPLE SCHEDULES ??
   HAVE A SEARCH FUNCTION FOR EACH TEAM AND DISPLAY TIME OF GAME, LOCATION OF GAME, AND OPPONENT ??
   
+  Should do preferences first ??? before deciding team, location and time ???
     
     
     
