@@ -66,7 +66,7 @@ Program start:
   call function to select park
   create 2d array[a][b] to hold park preferences
     //a <-- number of parks, b <-- max number of team
-  loop 5 ssigning values to park preference
+  loop 5 assigning values to park preference
     c =0; <-- variable to hold the number of times called/number of teams have prefernce for
     loop 6 //checking for team preferences
       if team[y] has preferences for park[x]
@@ -75,7 +75,7 @@ Program start:
       else do nothing
     loop 6//loop number of teams
   loop 5 //loop the number of parks
-  loop 7-- assigning team preferenced choices for all mathces
+  loop 7 <-- assigning team preferenced choices for all mathces
     loop 8 <-- assigning which team gets preferenced choice for one time (ex at 6 or at 7)
       randomize who gets the prefernce for that park
       remove that team from all preference list 
@@ -118,10 +118,22 @@ Program start:
   loop 11 // loop for number of times (twice)
   
   loop   <-- setting time 
-    
+    randomly select one pair for 6pm game
+    set the other pair for the 7 pm game
   loop  <-- loop for the number of parks
+  ^ Normal game non preference stuff ^
   
   
+  loop for number of parks
+    check to see time prefernces for team
+    if time preference for pair
+      randomly select 
+  loop
+  
+  
+  loop preference set
+    if time[x] 
+  loop <-- loops twice
   
   Save park location to array of matches (see future ideas)
   Save opponent to array of matches (see future ideas)
