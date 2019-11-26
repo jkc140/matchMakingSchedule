@@ -125,6 +125,14 @@ Program start:
   
   
   loop for number of parks
+    have temp array for preferences
+    store the different preferences for times for the different teams who are playing at park[x] 
+    2d array, [a][b]
+      a <-- is the number of times
+      b <-- the two teams
+    if both b have preferences that are not the same
+      randomly select the which one gets it
+    if both b have same preference 
     check to see time prefernces for team
     if time preference for pair
       randomly select 
