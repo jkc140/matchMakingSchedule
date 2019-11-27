@@ -117,36 +117,88 @@ Program start:
     loop 12 //loop for number of teams
   loop 11 // loop for number of times (twice)
   
-  loop   <-- setting time 
+  loop 13  <-- setting time 
     randomly select one pair for 6pm game
     set the other pair for the 7 pm game
-  loop  <-- loop for the number of parks
+  loop 13 <-- loop for the number of parks
   ^ Normal game non preference stuff ^
   
   
-  loop for number of parks
+  loop 13 <-- setting the preference time for teams
     have temp array for preferences
     store the different preferences for times for the different teams who are playing at park[x] 
+    have array or 2 different variables to deteremine/store preference time of match
     2d array, [a][b]
-      a <-- is the number of times
-      b <-- the two teams
-    if both b have preferences that are not the same
-      randomly select the which one gets it
-    if both b have same preference 
-    check to see time prefernces for team
-    if time preference for pair
-      randomly select 
-  loop
+      a <-- is the number of matches (2) ,  b <-- the two teams (2)    
+    loop 14 <-- determine which team gets their preference per match (only 2 teams per match) 
+      if both b have preferences that are not the same
+       randomly select the which one gets it
+        set match preference a to be that time
+      if both b have same preference 
+       set both
+        set match preference a to be that time
+      check to see time prefernces for team
+      if neither have preference 
+       set it to 0       
+    loop 14 //loop twice for the number of matches
+      
+    // v actually setting team for matches  v
+    if match preference 0 and match preference 1 is the same
+      randomly select one team to get the time
+      set the other team to be the non pref time
+      if both match preference are 0
+        randomly select time for one match
+        set on selected/used time for the other match 
+    if match preference 0 and match preference 1 is different
+      if match preference 0 or match preference 1 is equal to 0 
+        set the time of the match preference that is 0 to be the other time (non pref time of other match)
+      else 
+        do nothing, they both get their pref time                
+  loop 13 //loop number of park
   
-  
-  loop preference set
-    if time[x] 
-  loop <-- loops twice
-  
+  //storing information 
   Save park location to array of matches (see future ideas)
   Save opponent to array of matches (see future ideas)
   Save game time to array of matches (see future ideas)
   loop 3
+  
+  create a new file that stores all the match information (what teams are facing eachother, time of match, location of match)
+    // store the park location array of matches
+    // save opponent to array of matches
+    // save game time to array of matches 
+    // save start and end date of matches  
+  
+  //displaying the matches to the user
+  ask if format they want it sisplayed in
+  ask for the file name (where info stored)
+    //have in drop box ??? 
+  read information from the file 
+  if they say calender
+    NEED MORE RESEARCH
+    
+  if they say table
+    loop 15  //displaying the results 
+      display title(match number at top center)
+      display date
+        take start date and add 7 times the match number
+      2 rows: with different time of matches
+      number of columns is the number of parks: which display the number of parks
+      display the two teams facing eachother in corresponding time and park box/interesection
+      see table GUI format for example
+    loop 15 //loop number of matches
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   ASK USER FOR NAME OF SCHEDULE ??
@@ -154,16 +206,7 @@ Program start:
   HAVE A SEARCH FUNCTION FOR EACH TEAM AND DISPLAY TIME OF GAME, LOCATION OF GAME, AND OPPONENT ??
   
   Should do preferences first ??? before deciding team, location and time ???
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  ADD AN OPTION FOR A DOUBLE PLAY OR AN INSTANT WIN FOR TEAM BY SELF (ODD NUMBER OF TEAMS)
     
     
 File format
