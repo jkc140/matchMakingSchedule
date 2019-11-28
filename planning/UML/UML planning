@@ -1,0 +1,33 @@
+Classes:
+  Team Class
+    Variables
+      matchArray[number of matches][4]
+        [4]: park location, time, opponent
+    Methods
+      Get Preference
+      Get Name
+      Get opponent
+      Get Park
+      Get time
+      
+  Randomization class ?
+    Variables 
+      Preferences
+      Team name
+      parks
+      times      
+    Methods
+      random opponent
+      random Time
+      random place
+      
+      
+  GUI class ?
+    Variables
+      start date
+      end date
+      numbner of matches
+      matchArray 
+    Sub classes
+      Table
+      Calender
