@@ -173,9 +173,18 @@ Program start:
   ask for the file name (where info stored)
     //have in drop box ??? 
   read information from the file 
+  
+  //displaying it as a calender
   if they say calender
     NEED MORE RESEARCH
+    display calender
+    calculate the date for each match
+    place word game day on date
+    when click date display table on new window
+    See GUI formats
     
+    
+  //displaying as a table  
   if they say table
     loop 15  //displaying the results 
       display title(match number at top center)
