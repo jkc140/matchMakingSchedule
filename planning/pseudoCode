@@ -7,7 +7,7 @@ Program start:
   Ask user for the number of teams competeting ??
   Ask user for the number of parks being used??
   Ask user for name of the file being inputed
-    name of folder containing the team names, their preferences and park location
+    // name of folder containing the team names, their preferences and park location
   Store the name as a variable and use that variable to open the file
   Loop 1
     Read the file
