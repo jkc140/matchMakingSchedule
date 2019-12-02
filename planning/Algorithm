@@ -1,4 +1,3 @@
-New schedule:
 
 Get user input:
   Instructions to user
@@ -20,3 +19,10 @@ Randomize the matches:
 	Generate a random number then check if that team already has a match that week
 		and check if the two teams have already played against each other
 	Repeat until all teams have a match
+
+Select parks for the teams:
+	Check the park and time preferences of the teams and select the parks that 
+	will be played at (Ex. If both teams have a similar park and time preferences
+	select that park and time, if they have differing preferences select check which 
+	park and time that doesn’t already have a  match selected)
+
