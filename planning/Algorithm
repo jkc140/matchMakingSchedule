@@ -1,1 +1,16 @@
-Place holder
+New schedule:
+
+Number of teams competing:
+Get user input:
+  Instructions to user
+  Input the number of teams participating
+  Max of 20 teams
+  Input the number of parks being used
+  Input file name and location
+
+Read the file:
+	Takes the names and preferences of all the teams and makes an array. 
+    If there is an odd number of teams add an extra slot to the array and call it by
+	Check if the number of teams in the file matches the number previously entered
+	Creates an array with all the park names
+	Create variables for the start and end dates of the games
