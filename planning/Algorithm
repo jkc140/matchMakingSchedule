@@ -32,4 +32,4 @@ Select parks for the teams:
 	park and time that doesn’t already have a  match selected)
 
 Output schedule:
-Park | Teams | Time
+Park | Team 1 | Team 2 | Time
