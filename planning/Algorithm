@@ -31,3 +31,5 @@ Select parks for the teams:
 	select that park and time, if they have differing preferences select check which 
 	park and time that doesn’t already have a  match selected)
 
+Output schedule:
+Park | Teams | Time
