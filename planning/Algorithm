@@ -17,6 +17,6 @@ Read the file:
 Randomize the matches:
 	Have a boolean array (length = number of teams) to check which teams already
 		have a match
-	Generate a random number then check if that team already has
-		a match that week and check if the two teams have already played against each other
+	Generate a random number then check if that team already has a match that week
+		and check if the two teams have already played against each other
 	Repeat until all teams have a match
