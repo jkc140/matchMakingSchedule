@@ -1,43 +1,16 @@
-Team
-  {
-    [/Tester1/]
-    [/Panda Park/ /Gatineau Park/]
-  }
-  {
-    [/Tester 2/]
-    [/Banff National Park/]
-  }
-  {
-    [/Tester 3/]
-    [/DuPont Provincial Park/ /Thousand Island National Park/]
-  }
+number of teams/4
 
-Parks
-  {
-    [/Panda Park/]
-  }
-  {
-    [/Gatineau Park/]
-  }  
-  {
-    [/Banff National Park/]
-  }  
-  {
-    [/DuPont Provincial Park/]
-  }  
-  {
-    [/Thousand Island National Park/]
-  }
+teams
+tester1/Panda Park/Gatineau Park
+tester2/Banff National Park
+tester3/DuPont Provincial Park/Thousand Island National Park
 
+parks
+Panda Park/Gatineau Park/Banff National Park/DuPont Provincial Park/Thousand Island National Park
 
-Number of Matches
-  {/43/}
-
-Start Date
-  {/February 31/}
-
-End Date
-  {/August 30/}
+Number of Matches/43
+Start Date/February 21
+End Date/August 30
 
 
 NOTE: HAVE TO CHECK PREFERENCES TO PARKS AS IF WRONG NAME IS INPUTTED OR PARK IS INVALID THAN IT CANNOT BE USED AND WILL CAUSE AN ERROR
