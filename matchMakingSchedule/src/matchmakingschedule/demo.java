@@ -55,31 +55,49 @@ public class demo {
         String[] teamNum=new String[2];
         teamNum=lineStore[0].split("/");
         System.out.println("Team Num: "+teamNum[1]);
-        String[] teamInfo=new String[Integer.valueOf(teamNum[1])];
+        int numTeam=Integer.valueOf(teamNum[1]);
         int max=0;
         int count=0;
         /*String tempHolder= lineStore[4].replace("/", "0");
         System.out.println("new line store: " +tempHolder);
         System.out.print("true/false: ");
         System.out.println( tempHolder.indexOf("/")!=-1);*/
-        for(int x=3;x<3+Integer.valueOf(teamNum[1]);x++){
+        int[] splitter=new int[numTeam];
+        for(int x=3;x<3+numTeam;x++){
             String tempHolder=lineStore[x];
             while(tempHolder.indexOf("/")!=-1){
                 tempHolder=tempHolder.replaceFirst("/", "0");
                 count++;;
                 System.out.println("Looping");
             }
+            splitter[x-3]=count;
             System.out.println(count);
             if (count>max){
                 max=count;
             }
             count=0;
         }
+        System.out.println("text splittiung");
+        for(int x=0;x<numTeam;x++){
+            System.out.println(splitter[x]);
+        }
+        System.out.println("text splittiung");
         System.out.println(max);
-        
-        
-        for(int x=3;x<3+Integer.valueOf(teamNum[1]);x++){
-            System.out.println(lineStore[x]);
+        String[][] teamInfo=new String[numTeam][max+2];
+        for(int x=0;x<numTeam;x++){
+            teamInfo[x][max+1]=String.valueOf(splitter[x]);
+        }
+        for(int x=3;x<3+numTeam;x++){
+            teamInfo[x-3]=lineStore[x].split("/");
+            //System.out.println(lineStore[x]);
+        }
+        for(int x=0;x<numTeam;x++){
+           // System.out.println("changing line");
+            System.out.println(splitter[x]+1);
+            for(int y=0;y<splitter[x]+1;y++){
+               // System.out.println("Spot");
+                System.out.println(teamInfo[x][y]);
+            }
         }
     }
 }
