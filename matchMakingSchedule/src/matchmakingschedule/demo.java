@@ -58,20 +58,22 @@ public class demo {
         String[] teamInfo=new String[Integer.valueOf(teamNum[1])];
         int max=0;
         int count=0;
-        String tempHolder= lineStore[4].replace("/", "0");
+        /*String tempHolder= lineStore[4].replace("/", "0");
         System.out.println("new line store: " +tempHolder);
         System.out.print("true/false: ");
-        System.out.println( tempHolder.indexOf("/")!=-1);
+        System.out.println( tempHolder.indexOf("/")!=-1);*/
         for(int x=3;x<3+Integer.valueOf(teamNum[1]);x++){
-            /*while(lineStore[x].indexOf("/")!=-1){
-                lineStore[x].replaceFirst("/", "0");
+            String tempHolder=lineStore[x];
+            while(tempHolder.indexOf("/")!=-1){
+                tempHolder=tempHolder.replaceFirst("/", "0");
                 count++;;
                 System.out.println("Looping");
             }
             System.out.println(count);
             if (count>max){
                 max=count;
-            }*/
+            }
+            count=0;
         }
         System.out.println(max);
         
