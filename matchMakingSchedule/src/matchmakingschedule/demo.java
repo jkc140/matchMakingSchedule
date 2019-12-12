@@ -106,7 +106,6 @@ public class demo {
     public void randOpp(){
         int[][] opponents=new int[numTeam/2][2];        
         boolean[] hasTeam=new boolean[numTeam];
-        boolean full=false;
         Random rand=new Random();
         boolean valid=false;
         int opp;
@@ -222,7 +221,62 @@ public class demo {
         System.out.println(location[0][1]);
     }
     public void randTime(){
-        
+        int numLoc=5;
+        int numTime=2;
+        boolean[][]locHasTime=new boolean[numLoc][2];
+        int[][] matchTime=new int[numLoc][2];
+        boolean allHas=false;
+        boolean valid=false;
+        int cycle=0;
+        int time;
+        Random rand=new Random();
+        int TEMPMATCHNUM=1;
+        for(int loop=0;loop<2;loop++){
+            cycle=0;
+           System.out.println("cycle1"+cycle);
+            do{
+            
+                do{
+                    time=rand.nextInt(2);
+                    if(locHasTime[time][loop]==true){
+                        valid=false;
+                    }
+                    else{
+                        valid=true;
+                        locHasTime[time][loop]=true;
+                    }
+                }while(valid==false);
+                System.out.println("cycle2"+cycle);
+                System.out.println("time"+loop);
+                matchTime[cycle][loop]=time;
+                cycle++;
+                int count=0;
+                System.out.println("Counting1 "+ count);
+                for(int x=0;x<numLoc;x++){
+                     if(locHasTime[x][loop]==true){
+                         count++;
+                         System.out.println("Counting2 "+ count);
+                     }
+                     /*else{
+                         break;
+                     } <-- causes errors cause does not loop through them all, which is what it should not do, but since only 4 teams and 1 match at each time it has to check all of them
+                        ^ it this is to make sure all parks are selected, but since there is only 1 match per time that means only 1 location out of the 5 is being used and this part does not work with it
+                     */
+                }
+                System.out.println("Counting3 "+ count);
+                if (count==TEMPMATCHNUM/*LocSelect.length*/){
+                    System.out.println("hasTeam"+matchTime.length);
+                    System.out.println("Counting1 "+ count);
+                    allHas=true;
+                }
+                else{
+                    allHas=false;
+                }
+            }while(allHas==false);
+            System.out.println("Second time");
+        }
+        System.out.println("1st Time: "+matchTime[0][0]);
+        System.out.println("2nd Time: "+matchTime[0][1]);
     }
     
 }
