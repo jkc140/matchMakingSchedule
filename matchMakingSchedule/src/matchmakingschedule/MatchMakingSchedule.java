@@ -19,6 +19,7 @@ public class MatchMakingSchedule {
         demo d=new demo();
         d.getInfo();
         d.lineSorting();
+        d.randOpp();
     }
     
     
