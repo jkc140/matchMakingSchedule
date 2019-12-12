@@ -137,26 +137,37 @@ public class demo {
                     hasTeam[opp2]=true;
                 }
             }while(valid==false);
-            opponents[times][1]=opp; 
+            opponents[times][1]=opp2; 
             times++;
+            System.out.println("time: "+times);
             
             
             
             int count=0;
+            System.out.println("Counting1"+count);
             for(int x=0;x<hasTeam.length;x++){
                  if(hasTeam[x]==true){
                      count++;
+                     System.out.println("Counting2"+count);
                  }
                  else{
                      break;
                  }
             }
-            if (count!=hasTeam.length-1){
+            System.out.println("Counting3"+count);
+            //System.out.println("hasTeam"+hasTeam.length);
+            if (count==hasTeam.length){
+                System.out.println("Counting"+count);
+                System.out.println("hasTeam"+hasTeam.length);
                 allHas=true;
             }
             else{
                 allHas=false;
             }
         }while(allHas==false);
+        System.out.println(opponents[0][0]);
+        System.out.println(opponents[0][1]);
+        System.out.println(opponents[1][0]);
+        System.out.println(opponents[1][1]);
     }
 }
