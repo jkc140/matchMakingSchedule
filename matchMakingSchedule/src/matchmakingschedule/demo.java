@@ -11,9 +11,10 @@ import java.util.Scanner;
  * @author Joshua
  */
 public class demo {
+    public String[] lineStore;
     public void getInfo(){
         File inputs=new File("teamInfo.txt");
-        String[] lineStore;
+        
         try{
             if(inputs.createNewFile()==true){
                 System.out.println("Creating file");
@@ -39,9 +40,8 @@ public class demo {
                 lineStore[count]=lineRead.nextLine();
                 count++;
             }
-            for(int x=0;x<lineStore.length;x++){
-                System.out.println(lineStore[x]);
-            }            
+            System.out.println(count);
+                       
             lineRead.close();
         }
         catch(Exception e){
@@ -49,10 +49,15 @@ public class demo {
         }
         finally{
             
+        }              
+    }
+    public void lineSorting(){
+        String[] teamNum=new String[2];
+        teamNum=lineStore[0].split("/");
+        System.out.println("Team Num: "+teamNum[1]);
+        String[] teamInfo=new String[Integer.valueOf(teamNum[1])];
+        for(int x=3;x<3+Integer.valueOf(teamNum[1]);x++){
+            System.out.println(lineStore[x]);
         }
-        
-        
-        
-        
     }
 }
