@@ -20,6 +20,7 @@ public class MatchMakingSchedule {
         d.getInfo();
         d.lineSorting();
         d.randOpp();
+        d.randLoc();
     }
     
     
