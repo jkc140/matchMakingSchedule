@@ -56,6 +56,26 @@ public class demo {
         teamNum=lineStore[0].split("/");
         System.out.println("Team Num: "+teamNum[1]);
         String[] teamInfo=new String[Integer.valueOf(teamNum[1])];
+        int max=0;
+        int count=0;
+        String tempHolder= lineStore[4].replace("/", "0");
+        System.out.println("new line store: " +tempHolder);
+        System.out.print("true/false: ");
+        System.out.println( tempHolder.indexOf("/")!=-1);
+        for(int x=3;x<3+Integer.valueOf(teamNum[1]);x++){
+            /*while(lineStore[x].indexOf("/")!=-1){
+                lineStore[x].replaceFirst("/", "0");
+                count++;;
+                System.out.println("Looping");
+            }
+            System.out.println(count);
+            if (count>max){
+                max=count;
+            }*/
+        }
+        System.out.println(max);
+        
+        
         for(int x=3;x<3+Integer.valueOf(teamNum[1]);x++){
             System.out.println(lineStore[x]);
         }
