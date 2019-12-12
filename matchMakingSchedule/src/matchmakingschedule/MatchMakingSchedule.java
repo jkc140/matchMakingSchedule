@@ -21,6 +21,7 @@ public class MatchMakingSchedule {
         d.lineSorting();
         d.randOpp();
         d.randLoc();
+        d.randTime();
     }
     
     
