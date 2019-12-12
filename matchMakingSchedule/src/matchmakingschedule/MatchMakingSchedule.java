@@ -18,7 +18,9 @@ public class MatchMakingSchedule {
         // TODO code application logic here
         demo d=new demo();
         d.getInfo();
+        d.lineSorting();
     }
+    
     
     
 }
