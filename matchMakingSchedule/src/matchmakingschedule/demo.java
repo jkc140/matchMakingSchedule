@@ -6,12 +6,15 @@
 package matchmakingschedule;
 import java.io.File;
 import java.util.Scanner;
+import java.lang.Math;
+import java.util.Random;
 /**
  *
  * @author Joshua
  */
 public class demo {
     public String[] lineStore;
+    public int numTeam;
     public void getInfo(){
         File inputs=new File("teamInfo.txt");
         
@@ -55,7 +58,7 @@ public class demo {
         String[] teamNum=new String[2];
         teamNum=lineStore[0].split("/");
         System.out.println("Team Num: "+teamNum[1]);
-        int numTeam=Integer.valueOf(teamNum[1]);
+        numTeam=Integer.valueOf(teamNum[1]);
         int max=0;
         int count=0;
         /*String tempHolder= lineStore[4].replace("/", "0");
@@ -99,5 +102,61 @@ public class demo {
                 System.out.println(teamInfo[x][y]);
             }
         }
+    }
+    public void randomize(){
+        int[][] opponents=new int[numTeam/2][2];
+        
+        boolean[] hasTeam=new boolean[numTeam];
+        boolean full=false;
+        Random rand=new Random();
+        boolean valid=false;
+        int opp;
+        int opp2;
+        boolean allHas=false;
+        int times=0;
+        do{
+            
+            do{
+                opp=rand.nextInt(numTeam);
+                if(hasTeam[opp]==true){
+                    valid=false;
+                }
+                else{
+                    valid=true;
+                    hasTeam[opp]=true;
+                }
+            }while(valid==false);
+            opponents[times][0]=opp;
+            do{
+                opp2=rand.nextInt(numTeam);
+                if(hasTeam[opp2]==true){
+                    valid=false;
+                }
+                else{
+                    valid=true;
+                    hasTeam[opp2]=true;
+                }
+            }while(valid==false);
+            opponents[times][1]=opp; 
+            times++;
+            
+            
+            
+            int count=0;
+            for(int x=0;x<hasTeam.length;x++){
+                 if(hasTeam[x]==true){
+                     count++;
+                 }
+                 else{
+                     break;
+                 }
+            }
+            if (count!=hasTeam.length-1){
+                allHas=true;
+            }
+            else{
+                allHas=false;
+            }
+        }while(allHas==false);
     }
 }
