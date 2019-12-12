@@ -103,7 +103,7 @@ public class demo {
             }
         }
     }
-    public void randomize(){
+    public void randOpp(){
         int[][] opponents=new int[numTeam/2][2];
         
         boolean[] hasTeam=new boolean[numTeam];
@@ -144,20 +144,15 @@ public class demo {
             
             
             int count=0;
-            System.out.println("Counting1"+count);
             for(int x=0;x<hasTeam.length;x++){
                  if(hasTeam[x]==true){
                      count++;
-                     System.out.println("Counting2"+count);
                  }
                  else{
                      break;
                  }
             }
-            System.out.println("Counting3"+count);
-            //System.out.println("hasTeam"+hasTeam.length);
             if (count==hasTeam.length){
-                System.out.println("Counting"+count);
                 System.out.println("hasTeam"+hasTeam.length);
                 allHas=true;
             }
@@ -170,4 +165,11 @@ public class demo {
         System.out.println(opponents[1][0]);
         System.out.println(opponents[1][1]);
     }
+    public void randLoc(){
+        
+    }
+    public void randTime(){
+        
+    }
+    
 }
