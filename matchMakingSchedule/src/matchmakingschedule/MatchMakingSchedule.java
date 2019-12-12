@@ -16,6 +16,9 @@ public class MatchMakingSchedule {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        demo d=new demo();
+        d.getInfo();
     }
+    
     
 }
