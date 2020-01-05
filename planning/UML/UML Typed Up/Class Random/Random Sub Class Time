@@ -1,0 +1,21 @@
+Class: Random
+SubClass: time
+Variabels: 
+  - Array of Team info
+  - Array of time <-- 6 and 7 pm
+  - Array of matches <-- so assign each match a time
+  - Number of parks <-- # of times it has to loop/# of times (loops/appearances) for each time (6 or 7)
+  - Array of Preferences
+  - Pref/ no Pref <-- parameter
+  - Array of used
+  
+Function:
+  - GetTeamInfo
+  - GetTime
+  - GetNumParks
+  - GetMatches
+  - GetPref
+  - PrefRand
+  - normRand
+ 
+NOTE STORE INFO IN ARRAY OF TEAM (AN ARRAY WITHING THE ARRAY OF TEAM OBJECTS) OR ARRAY OF MATCHES
