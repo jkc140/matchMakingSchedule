@@ -1,0 +1,20 @@
+Class: Random
+SubClass: Opponent
+Variables:
+  - array of team
+  - pref/no pref
+  - array of used
+  - array of teamname ??? <-- to randomize can we not just use array of team 
+  - number of teams
+Functions:
+  -  getTeamInfo
+  - getTeamNum <-- can be combined with team info (just use array length)
+  - prefRand <-- NEEDED????
+  - normRand
+  
+  prefRand/normRand <-- store results in used (where switching between eachoterh, store it in use so know which teams already have opponents)
+        
+  NOTE: FOR SUBCLASS OPPONENT STORE OPPONENTS IN AN ARRAY CALLED PREVOPP, SO THERE ARE NO REPEATS WHEN DOING A NOTHER MATCH
+    - PREV OPP WOULD BE AN ARRAY IN THE TEAM CLASS
+  
+  NOTE 2: DOES RANDOMIZATION FOR OPPONENTES NEED PREF RRAND, CAUSE THERE IS NO PREFERANCES ????

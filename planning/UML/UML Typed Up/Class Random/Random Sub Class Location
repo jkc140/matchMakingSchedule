@@ -1,0 +1,17 @@
+Class Random
+Sub Class: Location
+Variables: 
+  - Array of Team info <-- put in constructor ???
+  - Array of Park Location
+  - Number of parks
+  - array of preferences
+  - pref/no pref <-- parameter
+  - array of used
+Function
+  - getTeamInfo
+  - getParkInfo
+  - getPref
+  - prefRand
+  - normRand
+  
+NOTE prefRand and norm Rand store info in array of team or array of matches  
