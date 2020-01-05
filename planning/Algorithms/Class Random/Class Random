@@ -1,1 +1,40 @@
-test
+Variables
+
+getInfo(array team,array tempOption){
+  loop 1[x] <-- loops for the length of team
+    arrayOfTeamInfo[x]=team[x]
+  loop 1
+  loop 2[x] <-- loops for the number of options there is (number of teams, number of parks, number of times,etc)
+    arrayOfoption[x]=tempOption[x] 
+      //option <-- number of options for preferences/choices (ex: park, team, time), tempOtion <-- temporary hold it
+  loop 2
+
+}
+getPref(){
+  loop 1[x] <--number of preferance options
+    int count=0;
+    loop 2[y] <--max number of teams
+      if team[y] has preferance for option[x]{
+        arrayOfPref[x][c]
+        c++
+      }
+      else{
+        do nothing
+      }
+    loop 2
+  loop 1
+}
+prefRand(){
+  loop 1[x] <-- number of options
+    arrayOfPrefGet[x]=randomly select team from arrayOfPref[x]
+    
+  loop 1 
+}
+
+normPref(){
+
+}
+
+storeInfo(){
+
+}
