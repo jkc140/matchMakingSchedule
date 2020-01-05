@@ -1,0 +1,20 @@
+Class: Random
+Sub Classes:
+  - Opponents
+  - Time
+  - Location
+Variables: 
+  - Array of Team (array of object of team calss)
+  - Preference/no Preference variable <-- boolean called pref ??
+  - Outcome <-- string ?? <-- is this really needed 
+  - Array called Used <-- stores teams,locations or times that have already been used
+  - Array of matches
+
+Functions
+  - getTeamInfo <-- get array of object from team class
+  - getMatch <-- get array of matches
+  - prefRand <-- preferance Randomize
+  - normRand <-- no Preference Randomization
+  - storeInfo <-- store info into match array <-- is this needed or it be implemented in the random functions ??
+  
+  
