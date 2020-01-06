@@ -19,7 +19,7 @@ public class MatchMakingSchedule {
      */
     public static void main(String[] args) {
         fileReader fRead=new fileReader();
-        //fRead.getName();
+        //fRead.getName(); //NEED TO GET THE LINE FROM THE USER WHEN USING GUI/TXT FIELD
         fRead.fileRead();
         fRead.sort();
         teamInfo=fRead.teamInfo;
