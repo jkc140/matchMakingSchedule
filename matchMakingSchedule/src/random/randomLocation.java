@@ -96,6 +96,7 @@ public class randomLocation extends Rand{
                 }while(moveOn=false);
                 //}
                 used[x][z]=true; //does this have to be moved into the if(alreadyhas==false) cause it may mess up the thing as it would be assigning a value to alreadyHas when it does not actually have to be it
+                prefUsed[y][x]=true;
             }
         }
         int loc1=0;
@@ -124,12 +125,15 @@ public class randomLocation extends Rand{
                assigned[loc1][t1][0]=tempSelect[loc1][t1];
                assigned[loc1][t1][1]=tempSelect[loc2][t2];
                used[loc2][t2]=false;
+               prefUsed[loc2][t2]=false;
                
            }
            else{
                assigned[loc2][t2][0]=tempSelect[loc1][t1];
                assigned[loc2][t2][1]=tempSelect[loc2][t2];
                used[loc1][t1]=false;
+               prefUsed[loc1][t1]=false;
+
                 
            }
            
