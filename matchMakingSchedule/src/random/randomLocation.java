@@ -63,13 +63,17 @@ public class randomLocation extends Rand{
                     }
                     if(alreadyHas[v]==true){
                         anyMore=++;
-                    }
+                    }                    
                     else{
                         anyMore=0;
                     }                   
                 }
                 if(anyMore==0){
                     continue;
+                }
+                else if(prefList[x].length==0){
+                      moveOn=true;
+                      break
                 }
                 else{
                     moveOn=true; //is this needed have to test cause technically the break would skip over the do loop
