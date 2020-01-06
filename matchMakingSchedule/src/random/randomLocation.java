@@ -48,12 +48,36 @@ public class randomLocation extends Rand{
         int slotNum=0;
         boolean moveOn=false;
         String[][] tempPref=prefList;
+        String[][] prefUsed;
+        boolean allPrefUsed=false;
+        do{
         for(int z=0;z<2;z++){ //Setting the team pref
             for(int x=0;x<parkList.length;x++){
                // for(int y=0;y<prefList[x].length;y++){
+                int anyMore=0; //anymore teams having pref for this available
+                for(int w=0;w<prefList[x].length;w++){
+                    for(int v=0;v<team.length;v++){                       
+                        if(tempSelect[x][z].equalsIgnoreCase(team[v][0])){
+                            slotNum=v;
+                        }
+                    }
+                    if(alreadyHas[v]==true){
+                        anyMore=++;
+                    }
+                    else{
+                        anyMore=0;
+                    }                   
+                }
+                if(anyMore==0){
+                    continue;
+                }
+                else{
+                    moveOn=true; //is this needed have to test cause technically the break would skip over the do loop
+                    break;                
+                }
                 do{
                    tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
-                   for(int y=0;y<team.length;y++){
+                   for(int y=0;y<team.length;y++){                       
                         if(tempSelect[x][z].equalsIgnoreCase(team[y][0])){
                             slotNum=y;
                         }
@@ -67,7 +91,7 @@ public class randomLocation extends Rand{
                    }
                 }while(moveOn=false);
                 //}
-                used[x][z]=true;
+                used[x][z]=true; //does this have to be moved into the if(alreadyhas==false) cause it may mess up the thing as it would be assigning a value to alreadyHas when it does not actually have to be it
             }
         }
         int loc1=0;
@@ -124,6 +148,26 @@ public class randomLocation extends Rand{
                     }
                 }
         }
+        int prefCheck=0;
+        for(int x=0;x<2;x++){
+            for(int y=0;x<parkList.length;x++){
+                if(prefUsed[y][x]==true){
+                    prefCheck++;
+                }
+                else{
+                    prefCheck=0;
+                    break;
+                }
+            }
+        }
+        if(prefCheck!=0){//may have to change it to be prefCheck==parkList.length
+            allPrefUsed=true;
+        }
+        else{
+            allPrefUsed=false;
+        }
+            
+        }while(allPrefUsed==false);    
         
     }
     public void normRand(){
