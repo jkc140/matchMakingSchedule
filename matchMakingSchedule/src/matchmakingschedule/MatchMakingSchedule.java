@@ -10,14 +10,19 @@ package matchmakingschedule;
  * @author Joshua
  */
 public class MatchMakingSchedule {
-    String[][][] matchInfo;
+    public static String[][][] matchInfo;
     //[a][b][c] a<-- match number, b is location c is time ??
-    String[][] teamInfo;
+    public static String[][] teamInfo;
     // [a][b] a<-- team name (length is number of teams, b<--preferences number of options
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        fileReader fRead=new fileReader();
+        //fRead.getName();
+        fRead.fileRead();
+        fRead.sort();
+        teamInfo=fRead.teamInfo;
         // TODO code application logic here
     }
     
