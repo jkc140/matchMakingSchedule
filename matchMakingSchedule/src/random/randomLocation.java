@@ -179,6 +179,36 @@ public class randomLocation extends Rand{
         
     }
     public void normRand(){
+        //assigning teams that still need a team
         
+        
+        //randomly assigning teams to parks that don't have a location
+        for(int x=0;x<2;x++){
+            for(int y=0;y>parkList.length;y++){
+                if(used[y][x]==false){
+                    do{
+                   tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
+                   for(int y=0;y<team.length;y++){                       
+                        if(tempSelect[x][z].equalsIgnoreCase(team[y][0])){
+                            slotNum=y;
+                        }                       
+                   }
+                   if(alreadyHas[slotNum]==false){
+                       moveOn=true;
+                       alreadyHas[slotNum]=true;
+                   }
+                   else{
+                       moveOn=false;
+                   }
+                }while(moveOn=false);
+                //}
+                used[x][z]=true;
+                //HAVE TO MAKE IT SO THAT THE OPPONENT WILL ALSO HAVE ALREADY HAS SET AS TRUE
+                }
+                else{
+                    continue;
+                }
+            }
+        }        
     }
 }
