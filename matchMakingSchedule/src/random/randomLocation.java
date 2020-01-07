@@ -48,7 +48,7 @@ public class randomLocation extends Rand{
         int slotNum=0;
         boolean moveOn=false;
         String[][] tempPref=prefList;
-        String[][] prefUsed;
+        boolean[][] prefUsed = new boolean[parkList.length][2];
         boolean allPrefUsed=false;
         do{
         for(int z=0;z<2;z++){ //Setting the team pref
@@ -61,24 +61,20 @@ public class randomLocation extends Rand{
                             slotNum=v;
                         }
                     }
-                    if(alreadyHas[v]==true){
-                        anyMore=++;
+                    if(alreadyHas[w]==true){
+                        anyMore++;
                     }                    
                     else{
                         anyMore=0;
                     }                   
                 }
-                if(anyMore==0){
-                    continue;
-                }
+                if(anyMore!=0){
+                    moveOn=true; //is this needed have to test cause technically the break would skip over the do loop
+                    break;                }
                 else if(prefList[x].length==0){
                       moveOn=true;
-                      break
-                }
-                else{
-                    moveOn=true; //is this needed have to test cause technically the break would skip over the do loop
-                    break;                
-                }
+                      break;
+                }                
                 do{
                    tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
                    for(int y=0;y<team.length;y++){                       
@@ -96,7 +92,7 @@ public class randomLocation extends Rand{
                 }while(moveOn=false);
                 //}
                 used[x][z]=true; //does this have to be moved into the if(alreadyhas==false) cause it may mess up the thing as it would be assigning a value to alreadyHas when it does not actually have to be it
-                prefUsed[y][x]=true;
+                prefUsed[x][z]=true;
             }
         }
         int loc1=0;
@@ -177,19 +173,22 @@ public class randomLocation extends Rand{
             
         }while(allPrefUsed==false);    
         
+        
     }
+
     public void normRand(){
         //assigning teams that still need a team
-        
-        
+        Random rand=new Random();
+        int slotNum=0;
+        boolean moveOn;
         //randomly assigning teams to parks that don't have a location
         for(int x=0;x<2;x++){
             for(int y=0;y>parkList.length;y++){
                 if(used[y][x]==false){
                     do{
-                   tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
-                   for(int y=0;y<team.length;y++){                       
-                        if(tempSelect[x][z].equalsIgnoreCase(team[y][0])){
+                   tempSelect[y][x]=prefList[x][rand.nextInt(prefList[y].length)]; //randomly selecting a team to get the priority
+                   for(int z=0;z<team.length;z++){                       
+                        if(tempSelect[y][x].equalsIgnoreCase(team[z][0])){
                             slotNum=y;
                         }                       
                    }
@@ -202,7 +201,7 @@ public class randomLocation extends Rand{
                    }
                 }while(moveOn=false);
                 //}
-                used[x][z]=true;
+                used[y][x]=true;
                 //HAVE TO MAKE IT SO THAT THE OPPONENT WILL ALSO HAVE ALREADY HAS SET AS TRUE
                 }
                 else{
