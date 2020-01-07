@@ -176,14 +176,14 @@ public class randomLocation extends Rand{
         
     }
 
-    public void normRand(){
+    public void normRand(int matchNum){
         //assigning teams that still need a team
         Random rand=new Random();
         int slotNum=0;
         boolean moveOn;
         //randomly assigning teams to parks that don't have a location
         for(int x=0;x<2;x++){
-            for(int y=0;y>parkList.length;y++){
+            for(int y=0;y<parkList.length;y++){
                 if(used[y][x]==false){
                     do{
                    tempSelect[y][x]=prefList[x][rand.nextInt(prefList[y].length)]; //randomly selecting a team to get the priority
@@ -202,6 +202,21 @@ public class randomLocation extends Rand{
                 }while(moveOn=false);
                 //}
                 used[y][x]=true;
+                String tempTeam="";
+                for(int w=0;w<parkList.length;w++){
+                    for(int v=0;v<2;v++){
+                        if(tempSelect[y][x].equalsIgnoreCase(matches[matchNum][w][x][v])){
+                            tempTeam=matches[matchNum][w][x][v];
+                        }
+                    }
+                    
+                }
+                for(int f=0;f<team.length;f++){
+                    if(tempTeam.equalsIgnoreCase(team[f][0])){
+                        alreadyHas[f]=true;
+                    }                     
+                   
+                }
                 //HAVE TO MAKE IT SO THAT THE OPPONENT WILL ALSO HAVE ALREADY HAS SET AS TRUE
                 }
                 else{
