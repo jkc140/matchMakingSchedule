@@ -1,0 +1,16 @@
+//getting other info
+        String[] parkInfo;
+        String startDate;
+        String endDate;
+        String matchNum;
+        int skipCount=3+numTeam+2; //gives parks
+        String tempHolder=lineStore[skipCount];
+            while(tempHolder.indexOf("/")!=-1){
+                tempHolder=tempHolder.replaceFirst("/", "0");
+                count++;;
+            }
+        parkInfo=new String[count];
+        for(int x=3;x<3+numTeam;x++){
+            parkInfo=lineStore[skipCount].split("/");
+            //System.out.println(lineStore[x]);
+        }
