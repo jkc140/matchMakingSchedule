@@ -226,7 +226,9 @@ public class randomLocation extends Rand{
         }        
     }
     public void storeInfo(int matchNum){
-        for(int x=0;x<2;x++){
+        
+        ///DELETE ME
+        /*for(int x=0;x<2;x++){
             int slotNum=0;
             for(int y=0;y<team.length;y++){
                 if(tempSelect[y][x].equalsIgnoreCase(matches[matchNum][y][x][0])||tempSelect[y][x].equalsIgnoreCase(matches[matchNum][y][x][1])){
@@ -237,7 +239,9 @@ public class randomLocation extends Rand{
                 matches[matchNum][y][x][0]="1";
                 
             }
-        }
+        }*/
+        ///DELETE ME
+        
         
         /////Should Work
         for(int x=0;x<2;x++){
