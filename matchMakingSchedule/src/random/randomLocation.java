@@ -250,12 +250,11 @@ public class randomLocation extends Rand{
                 }
                 tempSelect[slotNum][y]=prefList[RANDOMSELECT][y];
             }
-            
-                    /*
-            for(int y=0;y<parkList.length;y++){
-                matches[matchNum][y][x][0]="1";
-                
-            }*/
+            /*
+            This would be placed before temSelect s called in the randomPref place and probably can be changed to fit the normRand
+            the change would be instead of PrefList(it would be a list of the remaining teams)
+            */
+
         }
     }
 }
