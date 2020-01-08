@@ -16,6 +16,10 @@ public class fileReader {
     String fName;
     String[] rawData;
     String[][] teamInfo;
+    String parkInfo;
+    String startDate;
+    String endDate;
+    String matchNum;
     public void getName(String name){
         fName=name;
         fName=name+".txt"; // got to make it so it checks to see if .txt is on it
