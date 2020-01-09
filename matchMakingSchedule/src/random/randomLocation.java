@@ -10,6 +10,37 @@ import java.util.Random;
  * @author Joshua
  */
 public class randomLocation extends Rand{
+    /*Test Cases*/
+    String[][] tCaseTeam=new String[6][4];
+    String[]tCasePark=new String[3];
+    String[] tCaseMatches=new String[4];
+    public void initVal(){
+        //team info
+            tCaseTeam[0][0]="Hurbert";
+        tCaseTeam[0][1]="park3";
+                tCaseTeam[1][0]="Charlie";
+        tCaseTeam[0][1]="park1";
+        tCaseTeam[0][2]="park2";
+                tCaseTeam[2][0]="Hector";
+        tCaseTeam[0][1]="park2";
+        tCaseTeam[0][2]="park1";
+                tCaseTeam[3][0]="Arm3";
+        tCaseTeam[0][1]="park3";
+                tCaseTeam[4][0]="Test7";
+        tCaseTeam[0][1]="park3";
+        tCaseTeam[0][2]="park1";
+        tCaseTeam[0][3]="park2";
+                tCaseTeam[5][0]="Albert";
+        tCaseTeam[0][1]="park3";
+        tCaseTeam[0][2]="park1";
+        
+        //parkInfo
+        tCasePark[0]="park1";
+        tCasePark[1]="park2";
+        tCasePark[2]="park3";
+    }
+    
+    /*          */
     
     String[] parkList;
     String[][] tempSelect;
