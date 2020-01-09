@@ -260,42 +260,6 @@ public class randomLocation extends Rand{
             }
         }
         
-        
-        
-        
-        ///DELETE ME
-        /*for(int x=0;x<2;x++){
-            int slotNum=0;
-            for(int y=0;y<team.length;y++){
-                if(tempSelect[y][x].equalsIgnoreCase(matches[matchNum][y][x][0])||tempSelect[y][x].equalsIgnoreCase(matches[matchNum][y][x][1])){
-                    slotNum=y;
-                }
-            }
-            for(int y=0;y<parkList.length;y++){
-                matches[matchNum][y][x][0]="1";
-                
-            }
-        }*/
-        ///DELETE ME
-        
-        
-        /////Should Work
-        for(int x=0;x<2;x++){
-            int slotNum=0;
-            int RANDOMSELECT=0;
-            for(int y=0;y<prefList.length;y++){
-                for(int z=0;z<parkList.length;z++)
-                if(prefList[RANDOMSELECT][y].equalsIgnoreCase(matches[matchNum][z][x][0])||prefList[RANDOMSELECT][y].equalsIgnoreCase(matches[matchNum][z][x][1])){
-                    slotNum=y;
-                }
-                tempSelect[slotNum][y]=prefList[RANDOMSELECT][y];
-            }
-            /*
-            This would be placed before temSelect s called in the randomPref place and probably can be changed to fit the normRand
-            the change would be instead of PrefList(it would be a list of the remaining teams)
-            */
-
-        }
     }
     
     
