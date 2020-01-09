@@ -102,6 +102,46 @@ public class demo {
                 System.out.println(teamInfo[x][y]);
             }
         }
+        //getting other info
+        String[] parkInfo;
+        String[] startDate=new String[2];
+        String[] endDate=new String[2];
+        String[] matchNum=new String[2];
+        int skipCount=3+numTeam+2; //gives parks
+        String tempHolder=lineStore[skipCount];
+            while(tempHolder.indexOf("/")!=-1){
+                tempHolder=tempHolder.replaceFirst("/", "0");
+                count++;;
+            }
+        parkInfo=new String[count];
+        System.out.println("parks: ");
+        //for(int x=skipCount;x<3+numTeam;x++){
+            parkInfo=lineStore[skipCount].split("/");
+            //System.out.println(lineStore[x]);
+            for(int x=0;x<parkInfo.length;x++){
+                System.out.println(parkInfo[x]);
+
+            }
+            skipCount=skipCount+2;
+            System.out.println(skipCount);
+                        System.out.println(skipCount+1);
+                        System.out.println(skipCount+2);
+                        System.out.println(skipCount+3);           
+            startDate=lineStore[skipCount].split("/");
+            endDate=lineStore[skipCount+1].split("/");
+            matchNum=lineStore[skipCount+2].split("/");
+           /* for(int x=0;x<startDate.length;x++){
+                System.out.println("startDate");
+                 System.out.println(startDate[x]);
+            }*/
+            System.out.println(startDate[1]);
+            System.out.println(endDate[1]);
+            System.out.println(matchNum[1]);
+       
+        //}
+        
+        
+        
     }
     public void randOpp(){
         int[][] opponents=new int[numTeam/2][2];        
