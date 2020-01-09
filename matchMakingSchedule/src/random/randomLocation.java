@@ -261,4 +261,23 @@ public class randomLocation extends Rand{
 
         }
     }
+    int pairNum=team.length/2;
+    String[][] Opp=new String[pairNum][2];
+    public void getOpps(int matchNum){
+       // for(int x=0;x<4;x++){
+            for(int y=0;y<parkList.length;y++){
+                for(int z=0;z<2;z++){
+                    for(int a=0;a<2;a++){
+                        System.out.println("storing opponents");
+                        if(z==0){
+                            Opp[y][a]=matches[matchNum][y][z][a];
+                        }
+                        if (z==1){
+                            Opp[y+parkList.length][a]=matches[matchNum][y][z][a];
+                        }
+                    }
+                }
+            }
+      //  }
+    }
 }
