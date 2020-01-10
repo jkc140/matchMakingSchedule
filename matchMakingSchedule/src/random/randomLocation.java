@@ -5,19 +5,21 @@
  */
 package random;
 import java.util.Random;
+import java.math.*;
 /**
  *
  * @author Joshua
  */
 public class randomLocation extends Rand{
     /*Test Cases*/
-    String[][] tCaseTeam=new String[6][4];
-    String[]tCasePark=new String[3];
-    String[] tCaseMatches=new String[4];
+    String[][] tCaseTeam=new String[8][4];
+    String[]tCasePark=new String[2];
+    String[][][][] tCaseMatches=new String[1][2][2][2];
+    String[][] tCaseOpp=new String[4][2];
     public void initVal(){
         //team info
             tCaseTeam[0][0]="Hurbert";
-        tCaseTeam[0][1]="park3";
+        tCaseTeam[0][1]="park1";
                 tCaseTeam[1][0]="Charlie";
         tCaseTeam[0][1]="park1";
         tCaseTeam[0][2]="park2";
@@ -25,33 +27,62 @@ public class randomLocation extends Rand{
         tCaseTeam[0][1]="park2";
         tCaseTeam[0][2]="park1";
                 tCaseTeam[3][0]="Arm3";
-        tCaseTeam[0][1]="park3";
                 tCaseTeam[4][0]="Test7";
-        tCaseTeam[0][1]="park3";
         tCaseTeam[0][2]="park1";
         tCaseTeam[0][3]="park2";
                 tCaseTeam[5][0]="Albert";
-        tCaseTeam[0][1]="park3";
+        tCaseTeam[0][1]="park2";
         tCaseTeam[0][2]="park1";
-        
+            tCaseTeam[6][0]="Team4";
+        tCaseTeam[0][3]="park2";
+                tCaseTeam[7][0]="George";
+        tCaseTeam[0][2]="park1";
         //parkInfo
         tCasePark[0]="park1";
         tCasePark[1]="park2";
-        tCasePark[2]="park3";
+        /*
+        tCaseOpp[0][0]=tCaseTeam[3][0];
+        tCaseOpp[0][1]=tCaseTeam[4][0];
+        tCaseOpp[1][0]=tCaseTeam[6][0];
+        tCaseOpp[1][1]=tCaseTeam[2][0];
+        tCaseOpp[2][0]=tCaseTeam[0][0];
+        tCaseOpp[2][1]=tCaseTeam[1][0];
+        tCaseOpp[3][0]=tCaseTeam[5][0];
+        tCaseOpp[4][1]=tCaseTeam[7][0];*/
+        //tCaseMatches[0][0][0][0]="Hurbert";
+        tCaseMatches[0][0][0][0]=tCaseTeam[3][0];
+        tCaseMatches[0][0][0][1]=tCaseTeam[4][0];
+        tCaseMatches[0][0][1][0]=tCaseTeam[6][0];
+        tCaseMatches[0][0][1][1]=tCaseTeam[2][0];
+        tCaseMatches[0][1][0][0]=tCaseTeam[0][0];
+        tCaseMatches[0][1][0][1]=tCaseTeam[1][0];
+        tCaseMatches[0][1][1][0]=tCaseTeam[5][0];
+        tCaseMatches[0][1][1][1]=tCaseTeam[7][0];
+        
     }
     
     /*          */
+    
+    
     
     String[] parkList;
     String[][] tempSelect;
     String[][][][] matches;
     String [][][] assigned;
     boolean[] alreadyHas;
+    String[][] Opp;
     public void getParks(String[]parks){
         parkList=new String[parks.length];
         parkList=parks;
     }
-    
+    public void test(){
+        for(int x=0;x<team.length;x++){   
+            for(int y=0;y<team[x].length;y++){
+                System.out.println(team[x][y]);
+            }
+            
+        }
+    }
     public void randomLocation(){
         used=new boolean[parkList.length][2];
         prefList=new String[parkList.length][team.length];
@@ -256,9 +287,11 @@ public class randomLocation extends Rand{
             }
         }        
     }
-    int pairNum=team.length/2;
-    String[][] Opp=new String[pairNum][2];
+    
+    
     public void getOpps(int matchNum){
+        int pairNum=(int)Math.ceil(team.length/2);
+        Opp=new String[pairNum][2];
        // for(int x=0;x<4;x++){
             for(int y=0;y<parkList.length;y++){
                 for(int z=0;z<2;z++){
