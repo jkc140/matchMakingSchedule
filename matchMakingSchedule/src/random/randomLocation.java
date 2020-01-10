@@ -85,7 +85,7 @@ public class randomLocation extends Rand{
     }
     public void randomLocation(){
         used=new boolean[parkList.length][2];
-        prefList=new String[parkList.length][team.length];
+        
         tempSelect=new String[parkList.length][2];
         matches=new String[team.length][parkList.length][2][2];
         alreadyHas=new boolean[team.length];
@@ -94,13 +94,34 @@ public class randomLocation extends Rand{
         matches=matchInfo;
     }
     public void getPref(){
+        prefList=new String[parkList.length][team.length];
         for(int x=0;x<parkList.length;x++){
             int count=0;            
             for(int y=0;y<team.length;y++){
                 for(int z=0;z<team[y].length;z++){
-                    if(team[y][z].equalsIgnoreCase(parkList[x])){
+                    System.out.println(team[y][z]);
+                    if(team[y][x]==(null)){
+                        System.out.println("skip");
+                        continue;
+                    }
+                    System.out.println("team: " +team[y][z]);
+                    System.out.println("park: " +parkList[x]);
+                    if(team[y][x]!=null&&team[y][x].isEmpty()){
+                        System.out.println("not equal null");
+                        if(team[y][z].equalsIgnoreCase(parkList[x])){
+                        System.out.println(team[y][0]);
                         prefList[x][count]=team[y][0];
                     }
+                    /*if(!team[y][z].equalsIgnoreCase(parkList[x])){
+                        System.out.println("Not equal");
+                    }
+                    else if(team[y][z].equalsIgnoreCase(parkList[x])){
+                        System.out.println(team[y][0]);
+                        prefList[x][count]=team[y][0];
+                    }
+                    else{*/
+                    }
+                    
                 }
             }
         }
