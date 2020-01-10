@@ -70,7 +70,8 @@ public class MatchMakingSchedule {
         randLoc.getMatches(tCaseMatches);
         randLoc.getOpps(0);
         randLoc.getPref();
-        randLoc.test();
+        //randLoc.test();
+        randLoc.prefRand(0);
         // TODO code application logic here
      /*   demo d=new demo();
         d.getInfo();
