@@ -94,24 +94,31 @@ public class randomLocation extends Rand{
         matches=matchInfo;
     }
     public void getPref(){
+        System.out.println("Getpref");
         prefList=new String[parkList.length][team.length];
         for(int x=0;x<parkList.length;x++){
             int count=0;            
             for(int y=0;y<team.length;y++){
                 for(int z=0;z<team[y].length;z++){
                    // System.out.println(team[y][z]);
-                    if(team[y][x]==(null)){
+                    /*if(team[y][x]==(null)){
                        // System.out.println("skip");
-                        continue;
-                    }
-                   /* System.out.println("team: " +team[y][z]);
-                    System.out.println("park: " +parkList[x]);*/
-                    if(team[y][x]!=null&&team[y][x].isEmpty()){
-                       // System.out.println("not equal null");
+                        //continue;
+                    }*/
+                    System.out.println("team: " +team[y][z]);
+                    System.out.println("team2: " +team[y][x]);
+                    System.out.println("park: " +parkList[x]);
+                    System.out.println("empty"+team[y][x].isEmpty());
+                    System.out.println("Hi");
+                    System.out.println("null");
+                   //System.out.println
+                    if(team[y][x]!=null&&team[y][x].isEmpty()==false){
+                        System.out.println("not equal null");
                         if(team[y][z].equalsIgnoreCase(parkList[x])){
-                       // System.out.println(team[y][0]);
-                        prefList[x][count]=team[y][0];
-                    }
+                            System.out.println(team[y][0]);
+                            System.out.println(team[y][z]);
+                            prefList[x][count]=team[y][0];
+                        }
                     /*if(!team[y][z].equalsIgnoreCase(parkList[x])){
                         System.out.println("Not equal");
                     }
@@ -123,6 +130,12 @@ public class randomLocation extends Rand{
                     }
                     
                 }
+            }
+        }
+        for(int x=0;x<prefList.length;x++){
+            System.out.println("prefList");
+            for(int y=0;y<prefList[x].length;y++){
+                System.out.println(prefList[x][y]);
             }
         }
     }
@@ -140,14 +153,16 @@ public class randomLocation extends Rand{
                 int anyMore=0; //anymore teams having pref for this available
                 for(int w=0;w<prefList[x].length;w++){
                     for(int v=0;v<team.length;v++){ 
-                        System.out.println(tempSelect[x][z]);
-                        System.out.println(team[v][0]);
+                        /*System.out.println(tempSelect[x][z]);
+                        System.out.println(team[v][0]);*/
                         if(tempSelect[x][z]!=null&&tempSelect[x][z].isEmpty()){
                             if(tempSelect[x][z].equalsIgnoreCase(team[v][0])){
                             slotNum=v;
+                            }                            
                         }
+                        else{
+                            break;
                         }
-                        
                     }
                     if(alreadyHas[w]==true){
                         anyMore++;
@@ -164,8 +179,14 @@ public class randomLocation extends Rand{
                       break;
                 }                
                 do{
+                    System.out.println(rand.nextInt(prefList[x].length));
+                    for(int y=0;y<prefList[x].length;y++){
+                        System.out.println(prefList[x][y]);
+                    }
+                   System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
                    tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
-                   for(int y=0;y<team.length;y++){                       
+                   for(int y=0;y<team.length;y++){  
+                       System.out.println(tempSelect[x][z]);
                         if(tempSelect[x][z].equalsIgnoreCase(team[y][0])){
                             slotNum=y;
                         }
