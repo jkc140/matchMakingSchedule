@@ -94,7 +94,7 @@ public class randomLocation extends Rand{
         matches=matchInfo;
     }
     public void getPref(){
-        System.out.println("Getpref");
+        //System.out.println("Getpref");
         
         prefList=new String[parkList.length][team.length];
         for(int x=0;x<prefList.length;x++){
@@ -102,7 +102,7 @@ public class randomLocation extends Rand{
                 prefList[x][y]="-1";
             }
         }
-        System.out.println(team[0][3]==null);
+        //System.out.println(team[0][3]==null);
         
         
         for(int x=0;x<parkList.length;x++){
@@ -111,85 +111,30 @@ public class randomLocation extends Rand{
                 
                 for(int z=0;z<team[y].length;z++){
                     if(team[y][z]==null){
-                        System.out.println(team[y][z]==null);
-                        System.out.println("Skipping");
+                        //System.out.println(team[y][z]==null);
+                        //System.out.println("Skipping");
                     }
-                    /*if(!team[y][z].equalsIgnoreCase(parkList[x])){
-                        System.out.println("Not equal");
-                    }*/
                     else if(team[y][z].equalsIgnoreCase(parkList[x])){
-                      System.out.println(team[y][0]);
+                     // System.out.println(team[y][0]);
                         prefList[x][count]=team[y][0];
-                        System.out.println(prefList[x][count]);
+                       // System.out.println(prefList[x][count]);
                         count++;
-                        System.out.println(parkList[x]);
+                       /* System.out.println(parkList[x]);
                         System.out.println("count: "+count);
-                        System.out.println();  
-                    }
-                        
-                
-                    /*else{
-                        System.out.println("x:"+x);
-                        System.out.println("y:"+y);
-                        System.out.println("prefLength:"+prefList.length);
-                        System.out.println("teanLength:"+team.length);
-                        System.out.println("teamyLength:"+team[y].length);
-                        System.out.println("not skipping");
-                        System.out.println("count"+ count);
-                        prefList[x][count]=team[y][0];
-                        System.out.println(prefList[x][count]);
-                        count++;
-                        System.out.println();
-                    }*/
-                    
+                        System.out.println();  */
+                    }                    
                 }
-                
-                
-                   // System.out.println(team[y][z]);
-                    /*if(team[y][x]==(null)){
-                       // System.out.println("skip");
-                        //continue;
-                    }*//*
-                    System.out.println("team: " +team[y][z]);
-                    System.out.println("team2: " +team[y][x]);
-                    System.out.println("park: " +parkList[x]);
-                    System.out.println("empty"+team[y][x].isEmpty());
-                    System.out.println("Hi");
-                    System.out.println("null");
-                   //System.out.println
-                    if(team[y][x]!=null&&team[y][x].isEmpty()==false){
-                        System.out.println("not equal null");
-                        if(team[y][z].equalsIgnoreCase(parkList[x])){
-                            System.out.println(team[y][0]);
-                            System.out.println(team[y][z]);
-                            prefList[x][count]=team[y][0];
-                        }
-                    /*if(!team[y][z].equalsIgnoreCase(parkList[x])){
-                        System.out.println("Not equal");
-                    }
-                    else if(team[y][z].equalsIgnoreCase(parkList[x])){
-                        System.out.println(team[y][0]);
-                        prefList[x][count]=team[y][0];
-                    }
-                    else{*//*
-                    }
-                    
-                }/*
             }
         }
-        */
-            }
-        }
-        for(int x=0;x<prefList.length;x++){
+        /*for(int x=0;x<prefList.length;x++){
             System.out.println(prefList.length);
             System.out.println("prefList");
             System.out.println(parkList[x]);
             for(int y=0;y<prefList[x].length;y++){
-               /* System.out.println("x:"+x);
-                System.out.println("y:"+y);*/
+
                 System.out.println(prefList[x][y]);
             }
-        }
+        }*/
     }
     public void prefRand(int matchNum){
         Random rand=new Random();
