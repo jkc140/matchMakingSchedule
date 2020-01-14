@@ -5,7 +5,6 @@
  */
 package random;
 import java.util.Random;
-import java.math.*;
 /**
  *
  * @author Joshua
