@@ -22,7 +22,7 @@ public class randomOpponents {
         int opp;
         int opp2;
     
-    public void getTeams(teams[] teamInfo){
+    public void getTeams(team[] teamInfo){
         teamNum=teamInfo.length;
         teams=teamInfo;
         alreadyPlayed=new boolean[teamNum][teamNum-1];
