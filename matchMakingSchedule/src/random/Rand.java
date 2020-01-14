@@ -22,6 +22,7 @@ public class Rand {
             for(int y=0;y<teamInfo[x].length;y++){
                 team[x][y]=teamInfo[x][y];
             }
+        something to create a pull request
         }*/
         team=teamInfo;
     }
