@@ -93,9 +93,10 @@ public class MatchMakingSchedule {
         randLoc.getOpps(0);
         randLoc.getPref();
         //randLoc.test();
-        randLoc.prefRand(0);
+        //randLoc.prefRand(0);
+
         randLoc.normRand(0);
-        //randLoc.storeInfo(0);
+        randLoc.storeInfo(0);
         // TODO code application logic here
      /*   demo d=new demo();
         d.getInfo();
