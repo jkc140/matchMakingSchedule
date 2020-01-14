@@ -373,3 +373,4 @@ public class randomLocation extends Rand{
     
     
 }
+//test
