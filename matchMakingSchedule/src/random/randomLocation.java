@@ -87,15 +87,29 @@ public class randomLocation extends Rand{
         used=new boolean[parkList.length][2];
         
         tempSelect=new String[parkList.length][2];
-        matches=new String[team.length][parkList.length][2][2];
+        //matches=new String[team.length][parkList.length][2][2];
         alreadyHas=new boolean[team.length];
     }
     public void getMatches(String [][][][] matchInfo){
-        matches=matchInfo;
+        //matches=matchInfo;
+                matches=new String[matchInfo.length][matchInfo[0].length][matchInfo[0][0].length][matchInfo[0][0][0].length];
+
+        for(int x=0;x<matchInfo.length;x++){
+            for(int y=0;y<matchInfo[x].length;y++){
+                for(int z=0;z<2;z++){
+                    for(int a=0;a<2;a++){
+                        System.out.println("matchInfo: "+matchInfo[x][y][z][a]);
+                        matches[x][y][z][a]=matchInfo[x][y][z][a];
+                    }   
+                }   
+            }
+        }
+        System.out.println("matcheInfo0000"+matchInfo[0][0][0][0]);
+        System.out.println("matches"+matches[0][0][0][0]);
     }
     public void getPref(){
         //System.out.println("Getpref");
-        
+
         prefList=new String[parkList.length][team.length];
         for(int x=0;x<prefList.length;x++){
             for(int y=0;y<prefList[x].length;y++){
@@ -334,6 +348,7 @@ public class randomLocation extends Rand{
     
     
     public void getOpps(int matchNum){
+        System.out.println("matches"+matches[0][0][0][0]);
         int pairNum=(int)Math.ceil(team.length/2);
         Opp=new String[pairNum][2];
        // for(int x=0;x<4;x++){
@@ -342,25 +357,45 @@ public class randomLocation extends Rand{
                     for(int a=0;a<2;a++){
                         System.out.println("storing opponents");
                         if(z==0){
+                            System.out.println("y"+y);
+                            System.out.println("z"+z);
+                            System.out.println("a"+a);
+                            System.out.println("matches select:"+matches[0][0][0][0]);
+                            System.out.println("matches:"+matches[matchNum][y][z][a]);
                             Opp[y][a]=matches[matchNum][y][z][a];
+                            System.out.println("opp:"+Opp[y][a]);
                         }
                         if (z==1){
+                            System.out.println("matches:"+matches[matchNum][y][z][a]);
                             Opp[y+parkList.length][a]=matches[matchNum][y][z][a];
+                            System.out.println("opp:"+Opp[y+parkList.length][a]);
                         }
                     }
                 }
             }
+            for(int x=0;x<parkList.length;x++){
+                System.out.println("opp1: "+Opp[x][0]);
+                System.out.println("opp2: "+Opp[x][1]);
+            }
+            
       //  }
     }
     
     public void storeInfo(int matchNum){
+        System.out.println("storing information");
         for(int x=0;x<2;x++){
             for(int y=0;y<parkList.length;y++){
                 for(int z=0;z<Opp.length;){
                     for(int a=0;a<2;a++){
+                        System.out.println("temp: "+tempSelect[y][x]);
+                        System.out.println("opponent: "+Opp[z][a]);
                        if(tempSelect[y][x].equalsIgnoreCase(Opp[z][a])){
+                           
                            matches[matchNum][y][x][0]=Opp[z][0];
                            matches[matchNum][y][x][1]=Opp[z][1];
+                           System.out.println("parks and opp");
+                           System.out.println(matches[matchNum][y][x][0]=Opp[z][0]);
+                           System.out.println(matches[matchNum][y][x][1]=Opp[z][1]);
                        }
                     }
                 }
