@@ -406,6 +406,8 @@ public class randomLocation extends Rand{
                 
             }
         }
+        System.out.println(matches[matchNum][0][0][0]);
+         System.out.println(matches[matchNum][0][0][1]);
         
     }
     
