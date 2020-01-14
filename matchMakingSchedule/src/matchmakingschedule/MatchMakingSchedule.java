@@ -97,6 +97,8 @@ public class MatchMakingSchedule {
 
         randLoc.normRand(0);
         randLoc.storeInfo(0);
+        System.out.println(tCaseMatches[0][0][0][0]);
+        System.out.println(tCaseMatches[0][0][0][1]);
         // TODO code application logic here
      /*   demo d=new demo();
         d.getInfo();
