@@ -64,14 +64,38 @@ public class MatchMakingSchedule {
      */
     public static void main(String[] args) {
         initVal();
+        /*for(int x=0;x<tCaseTeam.length;x++){
+            for(int y=0;y<tCaseTeam[x].length;y++){
+                //System.out.println(tCaseTeam[x][y]);
+                if(tCaseTeam[x][y]==null){
+                    System.out.println(tCaseTeam[x][y]==null);
+                    tCaseTeam[x][y]="-1";
+                }
+                
+            }
+        }*/
+        /*for(int x=0;x<tCaseTeam.length;x++){
+            for(int y=0;y<tCaseTeam[x].length;y++){
+                //System.out.println(tCaseTeam[x][y]);
+                
+                    System.out.println(tCaseTeam[x][y]);
+                 
+                
+            }
+        }*/
+        //System.out.println(tCaseTeam[0][0]);
+        
         randomLocation randLoc=new randomLocation();
         randLoc.getParks(tCasePark);
         randLoc.getTeamInfo(tCaseTeam);
         randLoc.getMatches(tCaseMatches);
+        randLoc.randomLocation();
         randLoc.getOpps(0);
         randLoc.getPref();
         //randLoc.test();
         randLoc.prefRand(0);
+        randLoc.normRand(0);
+        //randLoc.storeInfo(0);
         // TODO code application logic here
      /*   demo d=new demo();
         d.getInfo();
