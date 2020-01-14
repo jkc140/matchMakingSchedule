@@ -9,23 +9,21 @@ package random;
  *
  * @author Joshua
  */
-public class Random {
+public class Rand {
     String[][] team;
     boolean pref;
-    String[]used;
+    boolean[][]used;
     String[][]prefList;
     String[]options;
     
-    public void getTeamInfo(String[][] teamInfo,String[] Options){
-        team=new String[teamInfo.length][teamInfo[0].length];
-        options=new String[Options.length];
-        /*for(int x=0;x<teamInfo.length;x++){
+    public void getTeamInfo(String[][] teamInfo){
+        /*team=new String[teamInfo.length][teamInfo[0].length];
+        for(int x=0;x<teamInfo.length;x++){
             for(int y=0;y<teamInfo[x].length;y++){
-                team
+                team[x][y]=teamInfo[x][y];
             }
         }*/
         team=teamInfo;
-        options=Options;
     }
     public void getPref(){        
     }
