@@ -385,8 +385,12 @@ public class randomLocation extends Rand{
         System.out.println("storing information");
         for(int x=0;x<2;x++){
             for(int y=0;y<parkList.length;y++){
-                for(int z=0;z<Opp.length;){
+                for(int z=0;z<Opp.length;z++){
                     for(int a=0;a<2;a++){
+                        System.out.println("x"+x);
+                        System.out.println("y"+y);
+                        System.out.println("z"+z);
+                        System.out.println("a"+a);
                         System.out.println("temp: "+tempSelect[y][x]);
                         System.out.println("opponent: "+Opp[z][a]);
                        if(tempSelect[y][x].equalsIgnoreCase(Opp[z][a])){
