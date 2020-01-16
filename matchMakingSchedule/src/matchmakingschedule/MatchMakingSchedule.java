@@ -63,6 +63,12 @@ public class MatchMakingSchedule {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //team t=new team();
+        /*
+        team[] test=new team[4];
+        test[0]=new team();
+        test[0].name="hello";
+        System.out.println(test[0].name);*/
         initVal();
         randomLocation randLoc=new randomLocation();
         randLoc.getParks(tCasePark);
