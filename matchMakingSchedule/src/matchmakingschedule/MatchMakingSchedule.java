@@ -5,6 +5,7 @@
  */
 package matchmakingschedule;
 import random.*;
+
 /**
  *
  * @author Joshua
@@ -63,15 +64,41 @@ public class MatchMakingSchedule {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //team t=new team();
-        /*
-        team[] test=new team[4];
-        test[0]=new team();
-        test[0].name="hello";
-        System.out.println(test[0].name);*/
+        
+        teams[] test=new teams[tCaseTeam.length];
+
         initVal();
+        for(int x=0;x<tCaseTeam.length;x++){
+            test[x]=new teams();
+            test[x].name=tCaseTeam[x][0];            
+        }
+        for(int x=0;x<tCaseTeam.length;x++){
+            for(int y=1;y<tCaseTeam[x].length;y++){
+                //System.out.println(tCaseTeam[x][y]);
+                //if(tCaseTeam[x][y]!=null&&tCaseTeam[x][y].isEmpty()){
+                    test[x].prefInit(tCaseTeam[x].length);
+                    test[x].pref[y-1]=tCaseTeam[x][y];
+                    //System.out.println("this is a very long code that is to chek to see if this is running");
+                    System.out.println("team "+test[x].name);
+                    System.out.println("y"+y);
+                    System.out.println("y-1 "+(y-1));
+                    System.out.println(test[x].pref[y-1]);
+                //}
+                
+            }
+            
+        }
+        System.out.println("prefs for team "+test[0].name);
+        for(int x=0;x<test[0].pref.length;x++){
+            
+            //if(test[2].pref[x]!=null&&test[2].pref[x].isEmpty()){
+                    System.out.println(test[0].pref[x]);  
+               // }
+          
+        }
+        
         randomLocation randLoc=new randomLocation();
-        randLoc.getParks(tCasePark);
+        /*randLoc.getParks(tCasePark);
         randLoc.getTeamInfo(tCaseTeam);
         randLoc.getMatches(tCaseMatches);
         randLoc.getOpps(0);
