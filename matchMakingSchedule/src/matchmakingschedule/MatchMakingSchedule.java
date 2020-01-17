@@ -73,16 +73,34 @@ public class MatchMakingSchedule {
             test[x].name=tCaseTeam[x][0];            
         }
         for(int x=0;x<tCaseTeam.length;x++){
-            for(int y=1;y<tCaseTeam[x].length;y++){
+            int count=0;
+            test[x].prefInit(tCaseTeam[x].length);
+            for(int y=1;y<tCaseTeam[x].length;y++){                
                 //System.out.println(tCaseTeam[x][y]);
                 //if(tCaseTeam[x][y]!=null&&tCaseTeam[x][y].isEmpty()){
-                    test[x].prefInit(tCaseTeam[x].length);
-                    test[x].pref[y-1]=tCaseTeam[x][y];
-                    //System.out.println("this is a very long code that is to chek to see if this is running");
-                    System.out.println("team "+test[x].name);
-                    System.out.println("y"+y);
-                    System.out.println("y-1 "+(y-1));
-                    System.out.println(test[x].pref[y-1]);
+                System.out.println("checking team name "+test[x].name);
+                System.out.println("initializing the pref list");
+                    
+                    System.out.println("test pref list length"+test[x].pref.length);
+                    System.out.println("count value 1 (before conversion): "+count);
+                    System.out.println("current Pref in tCase array(before conversion): "+tCaseTeam[x][y]);
+                    System.out.println("current value in team class pref list (before conversion)"+test[x].pref[count]);
+                    System.out.println("checking the y value (before conversion): "+y);
+                    System.out.println("checking the x value (before conversion): "+x);
+                    System.out.println("assigning value");
+                    test[x].pref[count]=tCaseTeam[x][y];
+                    System.out.println("value assigned");
+                    System.out.println("checking tCase array value (after conversion):"+tCaseTeam[x][y]);
+                    System.out.println("checking the y value (after conversion): "+y);
+                    System.out.println("checking the x value (afer conversion): "+x);
+                    System.out.println("current count value (after conversion) "+(count));
+                    System.out.println("current value in team class pref list (after conversion) "+test[x].pref[count]);
+                    count++;
+                    System.out.println("chekcing count value after adding one to count "+(count));
+                    System.out.println("checking value in pref list at 0 "+test[0].pref[0]);
+                    System.out.println();
+                    
+
                 //}
                 
             }
