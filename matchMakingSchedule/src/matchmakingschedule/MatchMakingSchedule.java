@@ -77,8 +77,9 @@ public class MatchMakingSchedule {
             test[x].prefInit(tCaseTeam[x].length);
             for(int y=1;y<tCaseTeam[x].length;y++){                
                 //System.out.println(tCaseTeam[x][y]);
-                //if(tCaseTeam[x][y]!=null&&tCaseTeam[x][y].isEmpty()){
-                System.out.println("checking team name "+test[x].name);
+                if(tCaseTeam[x][y]!=null){
+                    
+                    System.out.println("checking team name "+test[x].name);
                 System.out.println("initializing the pref list");
                     
                     System.out.println("test pref list length"+test[x].pref.length);
@@ -99,6 +100,12 @@ public class MatchMakingSchedule {
                     System.out.println("chekcing count value after adding one to count "+(count));
                     System.out.println("checking value in pref list at 0 "+test[0].pref[0]);
                     System.out.println();
+                }
+                else{
+                    System.out.println("null break");
+                    
+                }
+                
                     
 
                 //}
@@ -106,14 +113,17 @@ public class MatchMakingSchedule {
             }
             
         }
-        System.out.println("prefs for team "+test[0].name);
-        for(int x=0;x<test[0].pref.length;x++){
+        for(int y=0;y<tCaseTeam.length;y++){
+            System.out.println("prefs for team "+test[y].name);
+            for(int x=0;x<test[y].pref.length;x++){
             
             //if(test[2].pref[x]!=null&&test[2].pref[x].isEmpty()){
-                    System.out.println(test[0].pref[x]);  
+                    System.out.println(test[y].pref[x]);  
                // }
           
+            }
         }
+        
         
         randomLocation randLoc=new randomLocation();
         /*randLoc.getParks(tCasePark);
