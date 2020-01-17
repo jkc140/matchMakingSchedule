@@ -59,4 +59,10 @@ public class teams {
     public void prefInit(int max){
         pref=new String[max];
     }
+    public void initVal(int teamNum){
+        prevOpp=new boolean[teamNum-1];
+        for(int x=0;x<prevOpp.length;x++){
+            prevOpp[x]=false;
+        }
+    }
 }
