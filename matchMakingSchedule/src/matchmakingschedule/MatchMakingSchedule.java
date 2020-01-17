@@ -70,7 +70,8 @@ public class MatchMakingSchedule {
         initVal();
         for(int x=0;x<tCaseTeam.length;x++){
             test[x]=new teams();
-            test[x].name=tCaseTeam[x][0];            
+            test[x].name=tCaseTeam[x][0];   
+            test[x].initVal(tCaseTeam.length);
         }
         for(int x=0;x<tCaseTeam.length;x++){
             int count=0;
@@ -79,30 +80,30 @@ public class MatchMakingSchedule {
                 //System.out.println(tCaseTeam[x][y]);
                 if(tCaseTeam[x][y]!=null){
                     
-                    System.out.println("checking team name "+test[x].name);
+                 /*   System.out.println("checking team name "+test[x].name);
                 System.out.println("initializing the pref list");
                     
-                    System.out.println("test pref list length"+test[x].pref.length);
+                    /*System.out.println("test pref list length"+test[x].pref.length);
                     System.out.println("count value 1 (before conversion): "+count);
                     System.out.println("current Pref in tCase array(before conversion): "+tCaseTeam[x][y]);
                     System.out.println("current value in team class pref list (before conversion)"+test[x].pref[count]);
                     System.out.println("checking the y value (before conversion): "+y);
                     System.out.println("checking the x value (before conversion): "+x);
-                    System.out.println("assigning value");
+                    System.out.println("assigning value");*/
                     test[x].pref[count]=tCaseTeam[x][y];
-                    System.out.println("value assigned");
+                    /*System.out.println("value assigned");
                     System.out.println("checking tCase array value (after conversion):"+tCaseTeam[x][y]);
                     System.out.println("checking the y value (after conversion): "+y);
                     System.out.println("checking the x value (afer conversion): "+x);
                     System.out.println("current count value (after conversion) "+(count));
                     System.out.println("current value in team class pref list (after conversion) "+test[x].pref[count]);
-                    count++;
-                    System.out.println("chekcing count value after adding one to count "+(count));
+                   */count++;
+                    /*System.out.println("chekcing count value after adding one to count "+(count));
                     System.out.println("checking value in pref list at 0 "+test[0].pref[0]);
-                    System.out.println();
+                    System.out.println();*/
                 }
                 else{
-                    System.out.println("null break");
+                   // System.out.println("null break");
                     
                 }
                 
@@ -113,7 +114,7 @@ public class MatchMakingSchedule {
             }
             
         }
-        for(int y=0;y<tCaseTeam.length;y++){
+        /*for(int y=0;y<tCaseTeam.length;y++){
             System.out.println("prefs for team "+test[y].name);
             for(int x=0;x<test[y].pref.length;x++){
             
@@ -122,11 +123,23 @@ public class MatchMakingSchedule {
                // }
           
             }
-        }
+        }*/
         
         
         randomLocation randLoc=new randomLocation();
-        /*randLoc.getParks(tCasePark);
+        randomOpponents randOpp=new randomOpponents();
+        randOpp.getTeams(test);
+        randOpp.initVal(tCasePark.length);
+        randOpp.getMatches(tCaseMatches);
+        randOpp.normRand(0);
+        for(int x=0;x<tCasePark.length;x++){
+            for(int y=0;y<2;y++){
+                for(int z=0;z<2;z++){
+                    System.out.println(tCaseMatches[0][x][y][z]);
+                }
+            }
+        }
+        randLoc.getParks(tCasePark);
         randLoc.getTeamInfo(tCaseTeam);
         randLoc.getMatches(tCaseMatches);
         randLoc.getOpps(0);
