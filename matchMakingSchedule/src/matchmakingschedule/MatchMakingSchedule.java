@@ -143,9 +143,13 @@ public class MatchMakingSchedule {
         randLoc.getTeamInfo(tCaseTeam);
         randLoc.getMatches(tCaseMatches);
         randLoc.getOpps(0);
+        randLoc.randomLocation();
         randLoc.getPref();
+        
+        
         //randLoc.test();
         randLoc.prefRand(0);
+        randLoc.storeInfo(0);
         // TODO code application logic here
      /*   demo d=new demo();
         d.getInfo();
