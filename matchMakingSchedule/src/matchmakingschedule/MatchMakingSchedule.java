@@ -71,7 +71,7 @@ public class MatchMakingSchedule {
         for(int x=0;x<tCaseTeam.length;x++){
             test[x]=new teams();
             test[x].name=tCaseTeam[x][0];   
-            test[x].initVal(tCaseTeam.length);
+            test[x].initVal(tCaseTeam.length/*,x*/);
         }
         for(int x=0;x<tCaseTeam.length;x++){
             int count=0;
