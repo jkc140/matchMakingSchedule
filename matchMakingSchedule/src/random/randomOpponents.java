@@ -92,10 +92,19 @@ public class randomOpponents {
                             valid=true;
                             alreadyPlayed[opp][z]=true;
                             if(opp>=opp2){
-                                alreadyPlayed[opp2][opp-1]=true;
+                                teams[opp2].prevOpp[opp-1]=true;
+                                teams[opp].prevOpp[opp2]=true;
                             }
                             else{
-                                alreadyPlayed[opp2][opp]=true;
+                                teams[opp2].prevOpp[opp]=true;
+                                teams[opp].prevOpp[opp2-1]=true;
+                            }
+                            if(opp2>=opp){
+                                teams[opp].prevOpp[opp2-1]=true;
+                                
+                            }
+                            else{
+                                teams[opp].prevOpp[opp2]=true;
                             }
                             
                             //break;
