@@ -30,7 +30,8 @@ public class teams {
     public String[][] match;
     public String opponentPlayed[][];
     public boolean prevOpp[];
-    
+    public int teamSlotNum;
+
     
     public void getName(String[][] fileInfo,int teamNum){
         name=fileInfo[teamNum][0];
@@ -59,10 +60,20 @@ public class teams {
     public void prefInit(int max){
         pref=new String[max];
     }
-    public void initVal(int teamNum){
+    public void initVal(int teamNum/*,int slotNum*/){
         prevOpp=new boolean[teamNum-1];
         for(int x=0;x<prevOpp.length;x++){
             prevOpp[x]=false;
         }
+        //teamSlotNum=slotNum;
     }
+    /*public void getOppPlayed(String team,int slotNum){
+        if(teamSlotNum>slotNum){
+            prevOpp[slotNum]=true;
+        }
+        else if(teamSlotNum<=slotNum){
+            prevOpp[slotNum-1]=true;
+        }
+        
+    }*/ //DONT NEED AS IT WAS HARD CODED INTO THE RANDOM OPP CLASS
 }
