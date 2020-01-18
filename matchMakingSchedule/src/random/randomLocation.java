@@ -5,62 +5,13 @@
  */
 package random;
 import java.util.Random;
+import matchmakingschedule.*;
 /**
  *
  * @author Joshua
  */
 public class randomLocation extends Rand{
-    /*Test Cases*/
-    String[][] tCaseTeam=new String[8][4];
-    String[]tCasePark=new String[2];
-    String[][][][] tCaseMatches=new String[1][2][2][2];
-    String[][] tCaseOpp=new String[4][2];
-    public void initVal(){
-        //team info
-            tCaseTeam[0][0]="Hurbert";
-        tCaseTeam[0][1]="park1";
-                tCaseTeam[1][0]="Charlie";
-        tCaseTeam[0][1]="park1";
-        tCaseTeam[0][2]="park2";
-                tCaseTeam[2][0]="Hector";
-        tCaseTeam[0][1]="park2";
-        tCaseTeam[0][2]="park1";
-                tCaseTeam[3][0]="Arm3";
-                tCaseTeam[4][0]="Test7";
-        tCaseTeam[0][2]="park1";
-        tCaseTeam[0][3]="park2";
-                tCaseTeam[5][0]="Albert";
-        tCaseTeam[0][1]="park2";
-        tCaseTeam[0][2]="park1";
-            tCaseTeam[6][0]="Team4";
-        tCaseTeam[0][3]="park2";
-                tCaseTeam[7][0]="George";
-        tCaseTeam[0][2]="park1";
-        //parkInfo
-        tCasePark[0]="park1";
-        tCasePark[1]="park2";
-        /*
-        tCaseOpp[0][0]=tCaseTeam[3][0];
-        tCaseOpp[0][1]=tCaseTeam[4][0];
-        tCaseOpp[1][0]=tCaseTeam[6][0];
-        tCaseOpp[1][1]=tCaseTeam[2][0];
-        tCaseOpp[2][0]=tCaseTeam[0][0];
-        tCaseOpp[2][1]=tCaseTeam[1][0];
-        tCaseOpp[3][0]=tCaseTeam[5][0];
-        tCaseOpp[4][1]=tCaseTeam[7][0];*/
-        //tCaseMatches[0][0][0][0]="Hurbert";
-        tCaseMatches[0][0][0][0]=tCaseTeam[3][0];
-        tCaseMatches[0][0][0][1]=tCaseTeam[4][0];
-        tCaseMatches[0][0][1][0]=tCaseTeam[6][0];
-        tCaseMatches[0][0][1][1]=tCaseTeam[2][0];
-        tCaseMatches[0][1][0][0]=tCaseTeam[0][0];
-        tCaseMatches[0][1][0][1]=tCaseTeam[1][0];
-        tCaseMatches[0][1][1][0]=tCaseTeam[5][0];
-        tCaseMatches[0][1][1][1]=tCaseTeam[7][0];
-        
-    }
     
-    /*          */
     
     
     
@@ -70,6 +21,7 @@ public class randomLocation extends Rand{
     String [][][] assigned;
     boolean[] alreadyHas;
     String[][] Opp;
+    teams[]teamInfo;
     public void getParks(String[]parks){
         parkList=new String[parks.length];
         parkList=parks;
@@ -92,6 +44,14 @@ public class randomLocation extends Rand{
     public void getMatches(String [][][][] matchInfo){
         matches=matchInfo;
     }
+    public void initVal(int teamNum,teams[] impTeamInfo){
+        teamInfo=new teams[teamNum];
+        for(int x=0;x<teamInfo.length;x++){
+            teamInfo[x]=new teams();
+            teamInfo[x]=impTeamInfo[x];
+        }
+        
+    }
     public void getPref(){
         System.out.println("Getpref");
         prefList=new String[parkList.length][team.length];
@@ -99,11 +59,7 @@ public class randomLocation extends Rand{
             int count=0;            
             for(int y=0;y<team.length;y++){
                 for(int z=0;z<team[y].length;z++){
-                   // System.out.println(team[y][z]);
-                    /*if(team[y][x]==(null)){
-                       // System.out.println("skip");
-                        //continue;
-                    }*/
+
                     System.out.println("team: " +team[y][z]);
                     System.out.println("team2: " +team[y][x]);
                     System.out.println("park: " +parkList[x]);
@@ -118,14 +74,7 @@ public class randomLocation extends Rand{
                             System.out.println(team[y][z]);
                             prefList[x][count]=team[y][0];
                         }
-                    /*if(!team[y][z].equalsIgnoreCase(parkList[x])){
-                        System.out.println("Not equal");
-                    }
-                    else if(team[y][z].equalsIgnoreCase(parkList[x])){
-                        System.out.println(team[y][0]);
-                        prefList[x][count]=team[y][0];
-                    }
-                    else{*/
+
                     }
                     
                 }
