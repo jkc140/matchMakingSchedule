@@ -43,6 +43,7 @@ public class randomLocation extends Rand{
                 tempSelect[x][y]="-5";
             }
         }*/
+        assigned=new String[parkList.length][2][2];
         matches=new String[team.length][parkList.length][2][2];
         alreadyHas=new boolean[team.length];
     }
@@ -128,15 +129,15 @@ public class randomLocation extends Rand{
                 int anyMore=0; //anymore teams having pref for this available
                 for(int w=0;w<prefList[x].length;w++){
                     for(int v=0;v<team.length;v++){ 
-                        System.out.println(tempSelect[x][z]);
+                       /* System.out.println(tempSelect[x][z]);
                         System.out.println(team[v][0]);
                         System.out.println("x: "+x);
-                        System.out.println("z: "+z);
+                        System.out.println("z: "+z);*/
                         
                         if(tempSelect[x][z]!=null){
-                            System.out.println("Assigning slot Num");
+                            System.out.println("Assigning slot Num"); //error here every so often it would just repeatively loop here
                             if(tempSelect[x][z].equalsIgnoreCase(team[v][0])){ 
-                                System.out.println("equals");
+                              //  System.out.println("equals");
                                 slotNum=v;
                             }                            
                         }
@@ -160,14 +161,14 @@ public class randomLocation extends Rand{
                       break;
                 }                
                 do{
-        //            System.out.println(rand.nextInt(prefList[x].length));
+                //   System.out.println(rand.nextInt(prefList[x].length));
                     for(int y=0;y<prefList[x].length;y++){
-        //                System.out.println(prefList[x][y]);
+                //        System.out.println(prefList[x][y]);
                     }
-         //          System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
+                //  System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
                    tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
                    for(int y=0;y<team.length;y++){  
-         //              System.out.println(tempSelect[x][z]);
+                //       System.out.println(tempSelect[x][z]);
                         if(tempSelect[x][z].equalsIgnoreCase(team[y][0])){
                             slotNum=y;
                         }
@@ -203,7 +204,7 @@ public class randomLocation extends Rand{
                     
                 }
             }
-        }
+        } //this thing is determining the two opponents and their slot num on tempSelect
         
         if(loc1!=0&&loc2!=0){
            int num=rand.nextInt(2);
@@ -225,6 +226,10 @@ public class randomLocation extends Rand{
            
         }
         else if(loc1!=0&&loc2==0){
+            System.out.println("assigned 0: "+assigned[loc1][t1][0]);
+            System.out.println("assigned 1: "+assigned[loc1][t1][1]);
+            System.out.println("tempSelect 0: "+tempSelect[loc1][t1]);
+            System.out.println("tempSelect 1: "+tempSelect[loc2][t2]);
             assigned[loc1][t1][0]=tempSelect[loc1][t1];
             assigned[loc1][t1][1]=tempSelect[loc2][t2];
             for(int y=0;y<team.length;y++){
@@ -352,27 +357,27 @@ public class randomLocation extends Rand{
     }
     
     public void storeInfo(int matchNum){
-    //    System.out.println("storing information");
+       System.out.println("storing information");
         for(int x=0;x<2;x++){
             for(int y=0;y<parkList.length;y++){
                 for(int z=0;z<Opp.length;z++){
                     for(int a=0;a<2;a++){
-    /*                    System.out.println("x"+x);
+         /*               System.out.println("x"+x);
                         System.out.println("y"+y);
                         System.out.println("z"+z);
                         System.out.println("a"+a);
                         System.out.println("temp: "+tempSelect[y][x]);
                         System.out.println("opponent: "+Opp[z][a]);
-    */                   if(tempSelect[y][x].equalsIgnoreCase(Opp[z][a])){
+        */               if(tempSelect[y][x].equalsIgnoreCase(Opp[z][a])){ //error here about a null pointer
                            
                            matches[matchNum][y][x][0]=Opp[z][0];
                            matches[matchNum][y][x][1]=Opp[z][1];
-     /*                      System.out.println("parks and opp");
+                           System.out.println("parks and opp");
                            System.out.println(matches[matchNum][y][x][0]=Opp[z][0]);
                            System.out.println(matches[matchNum][y][x][1]=Opp[z][1]);
-    */                       MatchMakingSchedule.tCaseMatches[matchNum][y][x][0]=Opp[z][0];
+                           MatchMakingSchedule.tCaseMatches[matchNum][y][x][0]=Opp[z][0];
                            MatchMakingSchedule.tCaseMatches[matchNum][y][x][1]=Opp[z][1];
-                       }
+                       } //only loops 3 times, when 4 teams should be assigned (at least only outputs 3 times)
                     }
                 }
                 
