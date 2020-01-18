@@ -88,26 +88,31 @@ public class randomOpponents {
                         if(alreadyPlayed[opp2][z]==true){
                             valid=false;
                         }
-                        else{
+                        else if(valid==true){
                             valid=true;
-                            alreadyPlayed[opp][z]=true;
-                            if(opp>=opp2){
-                                teams[opp2].prevOpp[opp-1]=true;
+                            //alreadyPlayed[opp][z]=true;
+                            System.out.println();
+                            System.out.println("opp2: "+opp2);
+                            System.out.println("opp: "+opp);
+                            if(opp2<=opp){
+                                System.out.println("opp2<opp");
                                 teams[opp].prevOpp[opp2]=true;
                             }
-                            else{
-                                teams[opp2].prevOpp[opp]=true;
+                            else if(opp2>opp){
+                                System.out.println("opp2>opp");
                                 teams[opp].prevOpp[opp2-1]=true;
-                            }
-                            if(opp2>=opp){
-                                teams[opp].prevOpp[opp2-1]=true;
-                                
-                            }
-                            else{
-                                teams[opp].prevOpp[opp2]=true;
                             }
                             
-                            //break;
+                            if(opp<=opp2){
+                                System.out.println("opp<opp2");
+                                teams[opp2].prevOpp[opp]=true;
+                            }
+                            else if(opp>opp2){
+                                System.out.println("opp>opp2");
+                                teams[opp2].prevOpp[opp-1]=true;
+                            }
+                            break;
+                            
                         }
                     }
                 }while(valid==false);
