@@ -38,6 +38,11 @@ public class randomLocation extends Rand{
         used=new boolean[parkList.length][2];
         
         tempSelect=new String[parkList.length][2];
+        /*for(int x=0;x<tempSelect.length;x++){
+            for(int y=0;y<2;y++){
+                tempSelect[x][y]="-5";
+            }
+        }*/
         matches=new String[team.length][parkList.length][2][2];
         alreadyHas=new boolean[team.length];
     }
@@ -49,15 +54,15 @@ public class randomLocation extends Rand{
             for(int y=0;y<matchInfo[x].length;y++){
                 for(int z=0;z<2;z++){
                     for(int a=0;a<2;a++){
-                        System.out.println("matchInfo: "+matchInfo[x][y][z][a]);
+     //                   System.out.println("matchInfo: "+matchInfo[x][y][z][a]);
                         matches[x][y][z][a]=matchInfo[x][y][z][a];
                     }   
                 }   
             }
         }
-        System.out.println("matcheInfo0000"+matchInfo[0][0][0][0]);
+     /*   System.out.println("matcheInfo0000"+matchInfo[0][0][0][0]);
         System.out.println("matches"+matches[0][0][0][0]);
-    }
+    */}
     public void initVal(int teamNum,teams[] impTeamInfo){
         teamInfo=new teams[teamNum];
         for(int x=0;x<teamInfo.length;x++){
@@ -109,7 +114,7 @@ public class randomLocation extends Rand{
             }
         }*/
     }
-    public void prefRand(int matchNum){
+   public void prefRand(int matchNum){
         Random rand=new Random();
         int slotNum=0;
         boolean moveOn=false;
@@ -123,14 +128,20 @@ public class randomLocation extends Rand{
                 int anyMore=0; //anymore teams having pref for this available
                 for(int w=0;w<prefList[x].length;w++){
                     for(int v=0;v<team.length;v++){ 
-                        /*System.out.println(tempSelect[x][z]);
-                        System.out.println(team[v][0]);*/
-                        if(tempSelect[x][z]!=null&&tempSelect[x][z].isEmpty()){
-                            if(tempSelect[x][z].equalsIgnoreCase(team[v][0])){
-                            slotNum=v;
+                        System.out.println(tempSelect[x][z]);
+                        System.out.println(team[v][0]);
+                        System.out.println("x: "+x);
+                        System.out.println("z: "+z);
+                        
+                        if(tempSelect[x][z]!=null){
+                            System.out.println("Assigning slot Num");
+                            if(tempSelect[x][z].equalsIgnoreCase(team[v][0])){ 
+                                System.out.println("equals");
+                                slotNum=v;
                             }                            
                         }
                         else{
+                            System.out.println("null");
                             break;
                         }
                     }
@@ -149,14 +160,14 @@ public class randomLocation extends Rand{
                       break;
                 }                
                 do{
-                    System.out.println(rand.nextInt(prefList[x].length));
+        //            System.out.println(rand.nextInt(prefList[x].length));
                     for(int y=0;y<prefList[x].length;y++){
-                        System.out.println(prefList[x][y]);
+        //                System.out.println(prefList[x][y]);
                     }
-                   System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
+         //          System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
                    tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
                    for(int y=0;y<team.length;y++){  
-                       System.out.println(tempSelect[x][z]);
+         //              System.out.println(tempSelect[x][z]);
                         if(tempSelect[x][z].equalsIgnoreCase(team[y][0])){
                             slotNum=y;
                         }
@@ -307,59 +318,59 @@ public class randomLocation extends Rand{
     
     
     public void getOpps(int matchNum){
-        System.out.println("matches"+matches[0][0][0][0]);
+    //    System.out.println("matches"+matches[0][0][0][0]);
         int pairNum=(int)Math.ceil(team.length/2);
         Opp=new String[pairNum][2];
        // for(int x=0;x<4;x++){
             for(int y=0;y<parkList.length;y++){
                 for(int z=0;z<2;z++){
                     for(int a=0;a<2;a++){
-                        System.out.println("storing opponents");
+    //                    System.out.println("storing opponents");
                         if(z==0){
-                            System.out.println("y"+y);
+    /*                        System.out.println("y"+y);
                             System.out.println("z"+z);
                             System.out.println("a"+a);
                             System.out.println("matches select:"+matches[0][0][0][0]);
                             System.out.println("matches:"+matches[matchNum][y][z][a]);
-                            Opp[y][a]=matches[matchNum][y][z][a];
-                            System.out.println("opp:"+Opp[y][a]);
+     */                       Opp[y][a]=matches[matchNum][y][z][a];
+    //                        System.out.println("opp:"+Opp[y][a]);
                         }
                         if (z==1){
-                            System.out.println("matches:"+matches[matchNum][y][z][a]);
+    //                        System.out.println("matches:"+matches[matchNum][y][z][a]);
                             Opp[y+parkList.length][a]=matches[matchNum][y][z][a];
-                            System.out.println("opp:"+Opp[y+parkList.length][a]);
+    //                        System.out.println("opp:"+Opp[y+parkList.length][a]);
                         }
                     }
                 }
             }
             for(int x=0;x<parkList.length;x++){
-                System.out.println("opp1: "+Opp[x][0]);
-                System.out.println("opp2: "+Opp[x][1]);
+    //            System.out.println("opp1: "+Opp[x][0]);
+    //            System.out.println("opp2: "+Opp[x][1]);
             }
             
       //  }
     }
     
     public void storeInfo(int matchNum){
-        System.out.println("storing information");
+    //    System.out.println("storing information");
         for(int x=0;x<2;x++){
             for(int y=0;y<parkList.length;y++){
                 for(int z=0;z<Opp.length;z++){
                     for(int a=0;a<2;a++){
-                        System.out.println("x"+x);
+    /*                    System.out.println("x"+x);
                         System.out.println("y"+y);
                         System.out.println("z"+z);
                         System.out.println("a"+a);
                         System.out.println("temp: "+tempSelect[y][x]);
                         System.out.println("opponent: "+Opp[z][a]);
-                       if(tempSelect[y][x].equalsIgnoreCase(Opp[z][a])){
+    */                   if(tempSelect[y][x].equalsIgnoreCase(Opp[z][a])){
                            
                            matches[matchNum][y][x][0]=Opp[z][0];
                            matches[matchNum][y][x][1]=Opp[z][1];
-                           System.out.println("parks and opp");
+     /*                      System.out.println("parks and opp");
                            System.out.println(matches[matchNum][y][x][0]=Opp[z][0]);
                            System.out.println(matches[matchNum][y][x][1]=Opp[z][1]);
-                           MatchMakingSchedule.tCaseMatches[matchNum][y][x][0]=Opp[z][0];
+    */                       MatchMakingSchedule.tCaseMatches[matchNum][y][x][0]=Opp[z][0];
                            MatchMakingSchedule.tCaseMatches[matchNum][y][x][1]=Opp[z][1];
                        }
                     }
@@ -367,9 +378,9 @@ public class randomLocation extends Rand{
                 
             }
         }
-        System.out.println(matches[matchNum][0][0][0]);
+    /*    System.out.println(matches[matchNum][0][0][0]);
          System.out.println(matches[matchNum][0][0][1]);
-        
+    */    
     }
     
     
