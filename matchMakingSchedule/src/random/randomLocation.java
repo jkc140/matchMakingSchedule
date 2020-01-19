@@ -27,26 +27,14 @@ public class randomLocation extends Rand{
         parkList=parks;
     }
     public void test(){
-        for(int x=0;x<team.length;x++){   
+        for(int x=0;x<teamInfo.length;x++){   
             for(int y=0;y<team[x].length;y++){
                 System.out.println(team[x][y]);
             }
             
         }
     }
-    public void randomLocation(){
-        used=new boolean[parkList.length][2];
-        
-        tempSelect=new String[parkList.length][2];
-        /*for(int x=0;x<tempSelect.length;x++){
-            for(int y=0;y<2;y++){
-                tempSelect[x][y]="-5";
-            }
-        }*/
-        assigned=new String[parkList.length][2][2];
-        matches=new String[team.length][parkList.length][2][2];
-        alreadyHas=new boolean[team.length];
-    }
+
     public void getMatches(String [][][][] matchInfo){
         //matches=matchInfo;
                 matches=new String[matchInfo.length][matchInfo[0].length][matchInfo[0][0].length][matchInfo[0][0][0].length];
@@ -66,16 +54,32 @@ public class randomLocation extends Rand{
     */}
     public void initVal(int teamNum,teams[] impTeamInfo){
         teamInfo=new teams[teamNum];
+        assigned=new String[parkList.length][2][2];
+        alreadyHas=new boolean[teamInfo.length];
+        used=new boolean[parkList.length][2];        
+        tempSelect=new String[parkList.length][2];
+        
+        
         for(int x=0;x<teamInfo.length;x++){
             teamInfo[x]=new teams();
             teamInfo[x]=impTeamInfo[x];
         }
+        for(int x=0;x<alreadyHas.length;x++){
+            alreadyHas[x]=false;
+        }
+        
+        /*for(int x=0;x<tempSelect.length;x++){
+            for(int y=0;y<2;y++){
+                tempSelect[x][y]="-5";
+            }
+        }*/
+        
         
     }
     public void getPref(){
         //System.out.println("Getpref");
 
-        prefList=new String[parkList.length][team.length];
+        prefList=new String[parkList.length][teamInfo.length];
         for(int x=0;x<prefList.length;x++){
             for(int y=0;y<prefList[x].length;y++){
                 prefList[x][y]="-1";
@@ -86,16 +90,16 @@ public class randomLocation extends Rand{
         
         for(int x=0;x<parkList.length;x++){
             int count=0;            
-            for(int y=0;y<team.length;y++){
+            for(int y=0;y<teamInfo.length;y++){
                 
-                for(int z=0;z<team[y].length;z++){
-                    if(team[y][z]==null){
+                for(int z=0;z<teamInfo[y].pref.length;z++){
+                    if(teamInfo[y].pref[z]==null){
                         //System.out.println(team[y][z]==null);
                         //System.out.println("Skipping");
                     }
-                    else if(team[y][z].equalsIgnoreCase(parkList[x])){
+                    else if(teamInfo[y].pref[z].equalsIgnoreCase(parkList[x])){
                      // System.out.println(team[y][0]);
-                        prefList[x][count]=team[y][0];
+                        prefList[x][count]=teamInfo[y].name;
                        // System.out.println(prefList[x][count]);
                         count++;
                        /* System.out.println(parkList[x]);
@@ -122,149 +126,177 @@ public class randomLocation extends Rand{
         String[][] tempPref=prefList;
         boolean[][] prefUsed = new boolean[parkList.length][2];
         boolean allPrefUsed=false;
+        for(int x=0;x<alreadyHas.length;x++){
+            System.out.println(alreadyHas[x]);
+        }
         do{
-        for(int z=0;z<2;z++){ //Setting the team pref
-            for(int x=0;x<parkList.length;x++){
-               // for(int y=0;y<prefList[x].length;y++){
-                int anyMore=0; //anymore teams having pref for this available
-                for(int w=0;w<prefList[x].length;w++){
-                    for(int v=0;v<team.length;v++){ 
-                       /* System.out.println(tempSelect[x][z]);
-                        System.out.println(team[v][0]);
-                        System.out.println("x: "+x);
-                        System.out.println("z: "+z);*/
-                        
-                        if(tempSelect[x][z]!=null){
-                            System.out.println("Assigning slot Num"); //error here every so often it would just repeatively loop here
-                            if(tempSelect[x][z].equalsIgnoreCase(team[v][0])){ 
-                              //  System.out.println("equals");
-                                slotNum=v;
-                            }                            
-                        }
-                        else{
-                            System.out.println("null");
-                            break;
-                        }
-                    }
-                    if(alreadyHas[w]==true){
-                        anyMore++;
-                    }                    
-                    else{
-                        anyMore=0;
-                    }                   
-                }
-                if(anyMore!=0){
-                    moveOn=true; //is this needed have to test cause technically the break would skip over the do loop
-                    break;                }
-                else if(prefList[x].length==0){
-                      moveOn=true;
-                      break;
-                }                
-                do{
-                //   System.out.println(rand.nextInt(prefList[x].length));
-                    for(int y=0;y<prefList[x].length;y++){
-                //        System.out.println(prefList[x][y]);
-                    }
-                //  System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
-                   tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
-                   for(int y=0;y<team.length;y++){  
-                //       System.out.println(tempSelect[x][z]);
-                        if(tempSelect[x][z].equalsIgnoreCase(team[y][0])){
-                            slotNum=y;
-                        }
-                   }
-                   if(alreadyHas[slotNum]==false){
-                       moveOn=true;
-                       alreadyHas[slotNum]=true;
-                   }
-                   else{
-                       moveOn=false;
-                   }
-                }while(moveOn=false);
-                //}
-                used[x][z]=true; //does this have to be moved into the if(alreadyhas==false) cause it may mess up the thing as it would be assigning a value to alreadyHas when it does not actually have to be it
-                prefUsed[x][z]=true;
-            }
-        }
-        int loc1=0;
-        int loc2=0;
-        int t1=0,t2=0;
-        for(int z=0;z<2;z++){ //Setting the team pref
-            for(int x=0;x<parkList.length;x++){
-                for(int w=0;w<tempSelect.length;w++){
-                    if(tempSelect[w][z]==matches[x][matchNum][z][0]){
-                        loc1=w;
-                        t1=z;
-                    }
-                    else if(tempSelect[w][z]==matches[x][matchNum][z][1]){
-                        loc2=w;
-                        t2=z;
-                    }
-                    
-                    
-                }
-            }
-        } //this thing is determining the two opponents and their slot num on tempSelect
-        
-        if(loc1!=0&&loc2!=0){
-           int num=rand.nextInt(2);
-           if(num==0){
-               assigned[loc1][t1][0]=tempSelect[loc1][t1];
-               assigned[loc1][t1][1]=tempSelect[loc2][t2];
-               used[loc2][t2]=false;
-               prefUsed[loc2][t2]=false;
-               
-           }
-           else{
-               assigned[loc2][t2][0]=tempSelect[loc1][t1];
-               assigned[loc2][t2][1]=tempSelect[loc2][t2];
-               used[loc1][t1]=false;
-               prefUsed[loc1][t1]=false;
+            System.out.println("looping");
+            for(int z=0;z<2;z++){ //Setting the team pref
+                for(int x=0;x<parkList.length;x++){
+                   // for(int y=0;y<prefList[x].length;y++){
 
-                
-           }
-           
-        }
-        else if(loc1!=0&&loc2==0){
-            System.out.println("assigned 0: "+assigned[loc1][t1][0]);
-            System.out.println("assigned 1: "+assigned[loc1][t1][1]);
-            System.out.println("tempSelect 0: "+tempSelect[loc1][t1]);
-            System.out.println("tempSelect 1: "+tempSelect[loc2][t2]);
-            assigned[loc1][t1][0]=tempSelect[loc1][t1];
-            assigned[loc1][t1][1]=tempSelect[loc2][t2];
-            for(int y=0;y<team.length;y++){
-                    if(tempSelect[loc2][t2].equalsIgnoreCase(team[y][0])){
-                        alreadyHas[y]=true;
+                    /*  THIS IS FOR THE ANYMORE STUFF   */
+
+                    int anyMore=0; //anymore teams having pref for this available
+                    for(int w=0;w<prefList[x].length;w++){
+                        for(int v=0;v<teamInfo.length;v++){ 
+                           /* System.out.println(tempSelect[x][z]);
+                            System.out.println(team[v][0]);
+                            System.out.println("x: "+x);
+                            System.out.println("z: "+z);*/
+
+                            if(tempSelect[x][z]!=null){
+                        /*        System.out.println("temp: "+tempSelect[x][z]);
+                                System.out.println("team: "+team[v][0]);
+                                System.out.println("z: "+z);
+                                System.out.println("x: "+x);
+                                System.out.println("w: "+w);
+                                System.out.println("v: "+v);
+                                System.out.println("anyMore: "+anyMore);
+                                System.out.println("Assigning slot Num"); //error here every so often it would just repeatively loop here
+                         */       if(tempSelect[x][z].equalsIgnoreCase(teamInfo[v].name)){                                 
+                                    System.out.println("equals");
+                                    slotNum=v;
+                                    System.out.println("slotNum: "+slotNum);
+                                }                            
+                            }
+                            else{
+                                System.out.println("null");
+                                break;
+                            }
+                        }
+                                                            System.out.println("slotNum: "+slotNum);
+
+                        System.out.println("already has: "+alreadyHas[slotNum]);
+                        System.out.println(teamInfo[slotNum].name);
+                        if(alreadyHas[slotNum]==true){
+                            System.out.println("Already has");
+                            anyMore++;
+                        }                    
+                        else{
+                            System.out.println("don't have");
+                            anyMore=0;
+                        }                   
                     }
-                }
-        }
-        else if(loc1==0&&loc2!=0){
-            assigned[loc2][t2][0]=tempSelect[loc1][t1];
-            assigned[loc2][t2][1]=tempSelect[loc2][t2];
-            for(int y=0;y<team.length;y++){
-                    if(tempSelect[loc1][t1].equalsIgnoreCase(team[y][0])){
-                        alreadyHas[y]=true;
+                    System.out.println("Anymore: "+anyMore);
+                    if(anyMore!=0){
+                        moveOn=true; //is this needed have to test cause technically the break would skip over the do loop
+                        break;                }
+                    else if(prefList[x].length==0){
+                          moveOn=true;
+                          break;
                     }
-                }
-        }
-        int prefCheck=0;
-        for(int x=0;x<2;x++){
-            for(int y=0;x<parkList.length;x++){
-                if(prefUsed[y][x]==true){
-                    prefCheck++;
-                }
-                else{
-                    prefCheck=0;
-                    break;
+                    else{
+                        System.out.println("Anymore =0");
+                    }
+                    /*  THIS IS FOR THE ANYMORE STUFF   */
+
+
+                    do{
+                    //   System.out.println(rand.nextInt(prefList[x].length));
+                        for(int y=0;y<prefList[x].length;y++){
+                    //        System.out.println(prefList[x][y]);
+                        }
+                    //  System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
+                       tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
+                       for(int y=0;y<teamInfo.length;y++){  
+                    //       System.out.println(tempSelect[x][z]);
+                            if(tempSelect[x][z].equalsIgnoreCase(teamInfo[y].name)){
+                                slotNum=y;
+                            }
+                       }
+                       if(alreadyHas[slotNum]==false){
+                           moveOn=true;
+                           alreadyHas[slotNum]=true;
+                       }
+                       else{
+                           moveOn=false;
+                       }
+                    }while(moveOn=false);
+                    //}
+                    used[x][z]=true; //does this have to be moved into the if(alreadyhas==false) cause it may mess up the thing as it would be assigning a value to alreadyHas when it does not actually have to be it
+                    prefUsed[x][z]=true;
                 }
             }
-        }
-        if(prefCheck!=0){//may have to change it to be prefCheck==parkList.length
-            allPrefUsed=true;
-        }
-        else{
-            allPrefUsed=false;
-        }
+            int loc1=0;
+            int loc2=0;
+            int t1=0,t2=0;
+            for(int z=0;z<2;z++){ //Setting the team pref
+                for(int x=0;x<parkList.length;x++){
+                    for(int w=0;w<tempSelect.length;w++){
+                        if(tempSelect[w][z]==matches[matchNum][x][z][0]){
+                            loc1=w;
+                            t1=z;
+                        }
+                        else if(tempSelect[w][z]==matches[matchNum][x][z][1]){
+                            loc2=w;
+                            t2=z;
+                        }
+
+
+                    }
+                }
+            } //this thing is determining the two opponents and their slot num on tempSelect
+
+            if(loc1!=0&&loc2!=0){
+               int num=rand.nextInt(2);
+               if(num==0){
+                   assigned[loc1][t1][0]=tempSelect[loc1][t1];
+                   assigned[loc1][t1][1]=tempSelect[loc2][t2];
+                   used[loc2][t2]=false;
+                   prefUsed[loc2][t2]=false;
+
+               }
+               else{
+                   assigned[loc2][t2][0]=tempSelect[loc1][t1];
+                   assigned[loc2][t2][1]=tempSelect[loc2][t2];
+                   used[loc1][t1]=false;
+                   prefUsed[loc1][t1]=false;
+
+
+               }
+
+            }
+            else if(loc1!=0&&loc2==0){
+                System.out.println("assigned 0: "+assigned[loc1][t1][0]);
+                System.out.println("assigned 1: "+assigned[loc1][t1][1]);
+                System.out.println("tempSelect 0: "+tempSelect[loc1][t1]);
+                System.out.println("tempSelect 1: "+tempSelect[loc2][t2]);
+                assigned[loc1][t1][0]=tempSelect[loc1][t1];
+                assigned[loc1][t1][1]=tempSelect[loc2][t2];
+                for(int y=0;y<teamInfo.length;y++){
+                        if(tempSelect[loc2][t2].equalsIgnoreCase(teamInfo[y].name)){
+                            alreadyHas[y]=true;
+                        }
+                    }
+            }
+            else if(loc1==0&&loc2!=0){
+                assigned[loc2][t2][0]=tempSelect[loc1][t1];
+                assigned[loc2][t2][1]=tempSelect[loc2][t2];
+                for(int y=0;y<teamInfo.length;y++){
+                        if(tempSelect[loc1][t1].equalsIgnoreCase(teamInfo[y].name)){
+                            alreadyHas[y]=true;
+                        }
+                    }
+            }
+            int prefCheck=0;
+            for(int x=0;x<2;x++){
+                for(int y=0;x<parkList.length;x++){
+                    if(prefUsed[y][x]==true){
+                        prefCheck++;
+                    }
+                    else{
+                        prefCheck=0;
+                        break;
+                    }
+                }
+            }
+            if(prefCheck!=0){//may have to change it to be prefCheck==parkList.length
+                allPrefUsed=true;
+            }
+            else{
+                allPrefUsed=false;
+            }
             
         }while(allPrefUsed==false);    
         
@@ -282,8 +314,8 @@ public class randomLocation extends Rand{
                 if(used[y][x]==false){
                     do{
                    tempSelect[y][x]=prefList[x][rand.nextInt(prefList[y].length)]; //randomly selecting a team to get the priority
-                   for(int z=0;z<team.length;z++){                       
-                        if(tempSelect[y][x].equalsIgnoreCase(team[z][0])){
+                   for(int z=0;z<teamInfo.length;z++){                       
+                        if(tempSelect[y][x].equalsIgnoreCase(teamInfo[z].name)){
                             slotNum=y;
                         }                       
                    }
@@ -306,8 +338,8 @@ public class randomLocation extends Rand{
                     }
                     
                 }
-                for(int f=0;f<team.length;f++){
-                    if(tempTeam.equalsIgnoreCase(team[f][0])){
+                for(int f=0;f<teamInfo.length;f++){
+                    if(tempTeam.equalsIgnoreCase(teamInfo[f].name)){
                         alreadyHas[f]=true;
                     }                     
                    
@@ -324,7 +356,7 @@ public class randomLocation extends Rand{
     
     public void getOpps(int matchNum){
     //    System.out.println("matches"+matches[0][0][0][0]);
-        int pairNum=(int)Math.ceil(team.length/2);
+        int pairNum=(int)Math.ceil(teamInfo.length/2);
         Opp=new String[pairNum][2];
        // for(int x=0;x<4;x++){
             for(int y=0;y<parkList.length;y++){
