@@ -119,6 +119,40 @@ public class randomLocation extends Rand{
             }
         }*/
     }
+    public void getOpps(int matchNum){
+    //    System.out.println("matches"+matches[0][0][0][0]);
+        int pairNum=(int)Math.ceil(teamInfo.length/2);
+        Opp=new String[pairNum][2];
+       // for(int x=0;x<4;x++){
+            for(int y=0;y<parkList.length;y++){
+                for(int z=0;z<2;z++){
+                    for(int a=0;a<2;a++){
+    //                    System.out.println("storing opponents");
+                        if(z==0){
+    /*                        System.out.println("y"+y);
+                            System.out.println("z"+z);
+                            System.out.println("a"+a);
+                            System.out.println("matches select:"+matches[0][0][0][0]);
+                            System.out.println("matches:"+matches[matchNum][y][z][a]);
+     */                       Opp[y][a]=matches[matchNum][y][z][a];
+    //                        System.out.println("opp:"+Opp[y][a]);
+                        }
+                        if (z==1){
+    //                        System.out.println("matches:"+matches[matchNum][y][z][a]);
+                            Opp[y+parkList.length][a]=matches[matchNum][y][z][a];
+    //                        System.out.println("opp:"+Opp[y+parkList.length][a]);
+                        }
+                    }
+                }
+            }
+            for(int x=0;x<parkList.length;x++){
+    //            System.out.println("opp1: "+Opp[x][0]);
+    //            System.out.println("opp2: "+Opp[x][1]);
+            }
+            
+      //  }
+    }
+    
    public void prefRand(int matchNum){
         Random rand=new Random();
         int slotNum=0;
@@ -354,39 +388,7 @@ public class randomLocation extends Rand{
     }
     
     
-    public void getOpps(int matchNum){
-    //    System.out.println("matches"+matches[0][0][0][0]);
-        int pairNum=(int)Math.ceil(teamInfo.length/2);
-        Opp=new String[pairNum][2];
-       // for(int x=0;x<4;x++){
-            for(int y=0;y<parkList.length;y++){
-                for(int z=0;z<2;z++){
-                    for(int a=0;a<2;a++){
-    //                    System.out.println("storing opponents");
-                        if(z==0){
-    /*                        System.out.println("y"+y);
-                            System.out.println("z"+z);
-                            System.out.println("a"+a);
-                            System.out.println("matches select:"+matches[0][0][0][0]);
-                            System.out.println("matches:"+matches[matchNum][y][z][a]);
-     */                       Opp[y][a]=matches[matchNum][y][z][a];
-    //                        System.out.println("opp:"+Opp[y][a]);
-                        }
-                        if (z==1){
-    //                        System.out.println("matches:"+matches[matchNum][y][z][a]);
-                            Opp[y+parkList.length][a]=matches[matchNum][y][z][a];
-    //                        System.out.println("opp:"+Opp[y+parkList.length][a]);
-                        }
-                    }
-                }
-            }
-            for(int x=0;x<parkList.length;x++){
-    //            System.out.println("opp1: "+Opp[x][0]);
-    //            System.out.println("opp2: "+Opp[x][1]);
-            }
-            
-      //  }
-    }
+    
     
     public void storeInfo(int matchNum){
        System.out.println("storing information");
