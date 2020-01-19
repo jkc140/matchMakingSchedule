@@ -140,15 +140,24 @@ public class MatchMakingSchedule {
             }
         }
         randLoc.getParks(tCasePark);
-        randLoc.getTeamInfo(tCaseTeam);
+        randLoc.initVal(8, test);
+        
+        
         randLoc.getMatches(tCaseMatches);
         randLoc.getOpps(0);
-        randLoc.randomLocation();
+        
+        
         randLoc.getPref();
-        
-        
+        /*randLoc.prefLeft();
+        randLoc.prefSort();*/
+        randLoc.prefRand2(0);
+        //randLoc.prefSelect();
+        randLoc.normRand(0);
+        randLoc.storeInfo(0);
+       /* System.out.println("results");
+        for(int x=0;)*/
         //randLoc.test();
-        randLoc.prefRand(0);
+       /* randLoc.prefRand(0);
         randLoc.storeInfo(0);
         // TODO code application logic here
      /*   demo d=new demo();
