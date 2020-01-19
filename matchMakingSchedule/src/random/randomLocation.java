@@ -162,23 +162,24 @@ public class randomLocation extends Rand{
     
      
     public void prefLeft(){
-        int anyMore=0;
+       int anyMore=0;
         
         for(int x=0;x<prefList.length;x++){
+            anyMore=0;
             for(int y=0;y<prefList[x].length;y++){
                 if(prefList[x][y]==(teamInfo.length+prefBase)){
-                    System.out.println("prefList: "+prefList[x][y]);
+        /*            System.out.println("prefList: "+prefList[x][y]);
                     System.out.println("empty or used");
-                    anyMore++;
+        */            anyMore++;
                 }
                 else{
                     if(alreadyHas[prefList[x][y]]==true){ 
-                        System.out.println("already has in prefLeft");
+      //                  System.out.println("already has in prefLeft");
                         prefList[x][y]=prefList[x].length+prefBase;
                         anyMore++;
                     }
                     else{
-                        System.out.println("not used");
+     //                   System.out.println("not used");
                         anyMore=0;
                     }
                 }
@@ -186,11 +187,12 @@ public class randomLocation extends Rand{
             }
             
             if(anyMore==prefList[x].length){
-                System.out.println("no more pref");
+      //          System.out.println("no more pref");
                 prefMore[x]=false;
             }
             else{
-                System.out.println("Still more");
+       //         System.out.println("Still more");
+                System.out.println("anyMore: "+anyMore);
                 remove[x]=anyMore;
                 System.out.println(remove[x]);
                 prefMore[x]=true;
@@ -226,95 +228,14 @@ public class randomLocation extends Rand{
                 }
             }
         }
-        for(int x=0;x<prefList.length;x++){
+    /*    for(int x=0;x<prefList.length;x++){
             for(int y=0;y<prefList[x].length;y++){
                 System.out.println(prefList[x][y]);
             }
-        }
+       }*/
                     
     }
-    public void prefRand2(int matchNum){
-        boolean valid=false;
-        boolean valid2=false;
-        int randVal;
-        Random rand=new Random();
-        do{
-            for(int x=0;x<2;x++){
-                for(int y=0;y<parkList.length;y++){
-                    if(used[y][x]==false){
-                        prefLeft();
-                        prefSort();
-                        if(prefMore[y]==true){
-                            do{
-                                randVal= rand.nextInt(prefList[y].length-remove[x]);
-                                if(randVal==prefList[y].length+prefBase){
-                                    System.out.println("out of bounds");
-                                    valid =false;
-                                }
-                                else{
-                                    System.out.println(alreadyHas[randVal]);
-                                    if(alreadyHas[randVal]==true){
-                                        System.out.println("already has int prefRand");
-                                        valid=false;
-                                    }
-                                    else{
-                                        System.out.println("does not have");
-                                        valid2=true;
-                                        System.out.println(randVal);
-                                        System.out.println(alreadyHas[randVal]);
-                                        alreadyHas[randVal]=true;
-                                        prefList[y][randVal]=prefList[y].length+prefBase;
-                                    }
-                                }
-                            }while(valid2==false);
-                            tempSelect[y][x]=teamInfo[randVal].name;
-                            used[y][x]=true;
-
-                            //do the random
-                        }
-                        else{
-                            //continue on
-                        }
-                    }                    
-                }
-                
-            }
-            int exitCount=0;
-            prefSelect();
-            for(int x=0;x<used.length;x++){
-                for(int y=0;y<used[x].length;y++){
-                    if(used[x][y]==true){
-                        exitCount++;
-                    }
-                    else if(used[x][y]==false){
-                        valid =false;
-                        exitCount=0;
-                        
-                    }
-                }
-            }
-            System.out.println(exitCount);
-            if(exitCount==used.length*2){
-                System.out.println("not exiting");
-                valid=true;
-            }
-            else{
-                System.out.println("exiting");
-                valid=true;
-            }
-            
-        }while(valid==false);
-        for(int x=0;x<alreadyHas.length;x++){
-            System.out.println(alreadyHas[x]);
-        }
-        System.out.println("randomizing complete");
-        for(int x=0;x<2;x++){
-            for(int y=0;y<parkList.length;y++){
-                System.out.println(tempSelect[y][x]);
-            }
-        }
-    }
-    public void prefSelect(){
+        public void prefSelect(){
         Random rand=new Random();
         int slotNum1=0;
         int slotNum2=0;
@@ -328,7 +249,7 @@ public class randomLocation extends Rand{
                     }            
             }
             if((alreadyHas[slotNum1]==true)&&(alreadyHas[slotNum2]==true)){
-                System.out.println("Both teams have pref");
+       //         System.out.println("Both teams have pref");
                 int randVal=rand.nextInt(2);
                 int keep;
                 int change;
@@ -343,26 +264,125 @@ public class randomLocation extends Rand{
                 for(int z=0;z<2;z++){
                     for(int w=0;w<parkList.length;w++){
                         if(tempSelect[w][z].equalsIgnoreCase(teamInfo[change].name)){
-                            tempSelect[w][z]="empty";
+      //                      tempSelect[w][z]="empty";
                             used[w][z]=false;
                         }
                     }
                 }
             }
             else if((alreadyHas[slotNum1]==true)&&(alreadyHas[slotNum2]==false)){
-                System.out.println("team 1 has pref");
+       //         System.out.println("team 1 has pref");
                 alreadyHas[slotNum2]=true;
             }
             else if((alreadyHas[slotNum1]==false)&&(alreadyHas[slotNum2]==true)){
-                System.out.println("team 2 has pref");
+        //        System.out.println("team 2 has pref");
                 alreadyHas[slotNum1]=true;
             }
             else{
-                System.out.println("None had pref");
+        //        System.out.println("None had pref");
             }
         }
     
     }
+    
+    public void prefRand2(int matchNum){
+        boolean valid=false;
+        boolean valid2=false;
+        int randVal;
+        Random rand=new Random();
+        do{
+        //    System.out.println("Loopiong");
+            for(int x=0;x<2;x++){
+                for(int y=0;y<parkList.length;y++){
+                    if(used[y][x]==false){
+         //               System.out.println("random for:  "+parkList[y]);
+                        prefLeft();
+                        prefSort();
+                        if(prefMore[y]==true){
+                            do{
+                                System.out.println("prefList length: "+prefList[y].length);
+                                System.out.println("remove: "+remove[y]);
+                                randVal= rand.nextInt(prefList[y].length-remove[y]);
+           //                     System.out.println("rand Team: "+teamInfo[randVal].name);
+                                if(randVal==prefList[y].length+prefBase){
+            //                        System.out.println("out of bounds");
+                                    valid =false;
+                                }
+                                else{
+                                    System.out.println(alreadyHas[randVal]);
+                                    if(alreadyHas[randVal]==true){
+             //                           System.out.println("already has int prefRand");
+                                        valid=false;
+                                    }
+                                    else{
+             //                           System.out.println("does not have");
+                                        valid2=true;
+                                        System.out.println(randVal);
+                                        System.out.println(alreadyHas[randVal]);
+                                        alreadyHas[randVal]=true;
+                                        prefList[y][randVal]=prefList[y].length+prefBase;
+                                    }
+                                }
+                            }while(valid2==false);
+                            tempSelect[y][x]=teamInfo[randVal].name;
+                            used[y][x]=true;
+                            
+
+                            //do the random
+                        }
+                        else{
+                            //continue on
+                        }
+                    }                    
+                }
+                
+            }
+            for(int x=0;x<parkList.length;x++){
+                for(int y=0;y<2;y++){
+       //             System.out.println(tempSelect[x][y]);
+                }
+            }
+            
+     //       System.out.println("assigining parks finished");
+            int exitCount=0;
+            prefSelect();
+            for(int x=0;x<used.length;x++){
+                for(int y=0;y<used[x].length;y++){
+                    if(used[x][y]==true){
+                        exitCount++;
+                    }
+                    else if(used[x][y]==false){
+                        valid =false;
+                        exitCount=0;
+                        
+                    }
+                }
+            }
+     //       System.out.println(exitCount);
+            if(exitCount==used.length*2){
+     //           System.out.println("exiting");
+                valid=true;
+            }
+            else{
+   //             System.out.println("not exiting");
+                valid=false;
+            }
+            
+        }while(valid==false);
+       for(int x=0;x<alreadyHas.length;x++){
+      //      System.out.println(alreadyHas[x]);
+        }
+    //    System.out.println("randomizing complete");
+        
+   //     System.out.println("selected parks");
+        for(int x=0;x<2;x++){
+            for(int y=0;y<parkList.length;y++){
+    //            System.out.println("Park: "+parkList[x]+ ", time: "+y);
+    //            System.out.println(tempSelect[y][x]);
+            }
+        }
+    }
+
     
 
     
