@@ -16,15 +16,15 @@ public class Rand {
     String[][]prefList;
     String[]options;
     
-    public void getTeamInfo(String[][] teamInfo){
+    /*public void getTeamInfo(String[][] teamInfo){
         /*team=new String[teamInfo.length][teamInfo[0].length];
         for(int x=0;x<teamInfo.length;x++){
             for(int y=0;y<teamInfo[x].length;y++){
                 team[x][y]=teamInfo[x][y];
             }
-        }*/
+        }*//*
         team=teamInfo;
-    }
+    }*/
     public void getPref(){        
     }
     public void prefRand(){
