@@ -558,7 +558,7 @@ public class randomLocation extends Rand{
                     //        System.out.println(prefList[x][y]);
                         }
                     //  System.out.println(prefList[x][rand.nextInt(prefList[x].length)]);
-                       tempSelect[x][z]=prefList[x][rand.nextInt(prefList[x].length)]; //randomly selecting a team to get the priority
+                       tempSelect[x][z]=teamInfo[prefList[x][rand.nextInt(prefList[x].length)]].name; //randomly selecting a team to get the priority
                        for(int y=0;y<teamInfo.length;y++){  
                     //       System.out.println(tempSelect[x][z]);
                             if(tempSelect[x][z].equalsIgnoreCase(teamInfo[y].name)){
