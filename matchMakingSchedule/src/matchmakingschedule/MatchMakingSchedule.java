@@ -128,6 +128,7 @@ public class MatchMakingSchedule {
         
         randomLocation randLoc=new randomLocation();
         randomOpponents randOpp=new randomOpponents();
+        randomTime randTime=new randomTime();
         randOpp.getTeams(test);
         randOpp.initVal(tCasePark.length);
         randOpp.getMatches(tCaseMatches);
@@ -154,6 +155,9 @@ public class MatchMakingSchedule {
         //randLoc.prefSelect();
         randLoc.normRand(0);
         randLoc.storeInfo(0);
+        randTime.getInfo(tCasePark, test, tCaseMatches);
+        randTime.getOpps(0);
+        randTime.normRand(0);
        /* System.out.println("results");
         for(int x=0;)*/
         //randLoc.test();
