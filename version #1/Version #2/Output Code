@@ -1,4 +1,6 @@
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 StringBuilder builder = new StringBuilder();
 for(int i = 0; i < Display.length; i++)//for each row
