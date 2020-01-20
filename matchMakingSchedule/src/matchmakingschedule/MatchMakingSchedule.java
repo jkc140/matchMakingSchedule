@@ -16,7 +16,7 @@ public class MatchMakingSchedule {
     public static String[]tCasePark=new String[2];
     public static String[][][][] tCaseMatches=new String[1][2][2][2];
     public static String[][] tCaseOpp=new String[4][2];
-    public static void initVal(){
+    public static void tCaseInitVal(){
         //team info
             tCaseTeam[0][0]="Hurbert";
         tCaseTeam[0][1]="park1";
@@ -67,7 +67,7 @@ public class MatchMakingSchedule {
         
         teams[] test=new teams[tCaseTeam.length];
 
-        initVal();
+        tCaseInitVal();
         for(int x=0;x<tCaseTeam.length;x++){
             test[x]=new teams();
             test[x].name=tCaseTeam[x][0];   
