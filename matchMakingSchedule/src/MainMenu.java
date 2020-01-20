@@ -1,9 +1,3 @@
-
-import java.awt.Font;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,8 +6,12 @@ import javax.swing.JTable;
 
 /**
  *
- * @author Joshua
+ * @author S331461103
  */
+import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 public class MainMenu extends javax.swing.JFrame {
 
     /**
