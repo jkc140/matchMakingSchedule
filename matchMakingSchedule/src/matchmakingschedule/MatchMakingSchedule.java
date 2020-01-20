@@ -11,7 +11,7 @@ import random.*;
  * @author Joshua
  */
 public class MatchMakingSchedule {
-    /*Test Cases*/
+    /*teamInfo Cases*/
     public static String[][] tCaseTeam=new String[8][4];
     public static String[]tCasePark=new String[2];
     public static String[][][][] tCaseMatches=new String[1][2][2][2];
@@ -27,7 +27,7 @@ public class MatchMakingSchedule {
         tCaseTeam[2][1]="park2";
         tCaseTeam[2][2]="park1";
                 tCaseTeam[3][0]="Arm3";
-                tCaseTeam[4][0]="Test7";
+                tCaseTeam[4][0]="teamInfo7";
         tCaseTeam[4][2]="park1";
         tCaseTeam[4][3]="park2";
                 tCaseTeam[5][0]="Albert";
@@ -64,72 +64,43 @@ public class MatchMakingSchedule {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        teams[] test=new teams[tCaseTeam.length];
+        fileReader fRead=new fileReader();
+        fRead.getName(name);
+        fRead.storeInfo();
+        fRead.sort();
+        teams[] teamInfo=new teams[fRead.numTeam];
 
-        tCaseInitVal();
-        for(int x=0;x<tCaseTeam.length;x++){
-            test[x]=new teams();
-            test[x].name=tCaseTeam[x][0];   
-            test[x].initVal(tCaseTeam.length/*,x*/);
+        
+        for(int x=0;x<teamInfo.length;x++){
+            teamInfo[x]=new teams();
+            teamInfo[x].name=fRead.teamInfo[x][0];   
+            teamInfo[x].initVal(teamInfo.length/*,x*/);
         }
-        for(int x=0;x<tCaseTeam.length;x++){
+        for(int x=0;x<teamInfo.length;x++){
             int count=0;
-            test[x].prefInit(tCaseTeam[x].length);
-            for(int y=1;y<tCaseTeam[x].length;y++){                
-                //System.out.println(tCaseTeam[x][y]);
-                if(tCaseTeam[x][y]!=null){
-                    
-                 /*   System.out.println("checking team name "+test[x].name);
-                System.out.println("initializing the pref list");
-                    
-                    /*System.out.println("test pref list length"+test[x].pref.length);
-                    System.out.println("count value 1 (before conversion): "+count);
-                    System.out.println("current Pref in tCase array(before conversion): "+tCaseTeam[x][y]);
-                    System.out.println("current value in team class pref list (before conversion)"+test[x].pref[count]);
-                    System.out.println("checking the y value (before conversion): "+y);
-                    System.out.println("checking the x value (before conversion): "+x);
-                    System.out.println("assigning value");*/
-                    test[x].pref[count]=tCaseTeam[x][y];
-                    /*System.out.println("value assigned");
-                    System.out.println("checking tCase array value (after conversion):"+tCaseTeam[x][y]);
-                    System.out.println("checking the y value (after conversion): "+y);
-                    System.out.println("checking the x value (afer conversion): "+x);
-                    System.out.println("current count value (after conversion) "+(count));
-                    System.out.println("current value in team class pref list (after conversion) "+test[x].pref[count]);
-                   */count++;
-                    /*System.out.println("chekcing count value after adding one to count "+(count));
-                    System.out.println("checking value in pref list at 0 "+test[0].pref[0]);
-                    System.out.println();*/
+            teamInfo[x].prefInit(fRead.teamInfo[x].length);
+            for(int y=1;y<fRead.teamInfo[x].length;y++){                
+                if(fRead.teamInfo[x][y]!=null){
+
+                    teamInfo[x].pref[count]=fRead.teamInfo[x][y];
+                    count++;
+
                 }
                 else{
-                   // System.out.println("null break");
                     
                 }
-                
-                    
 
-                //}
                 
             }
             
         }
-        /*for(int y=0;y<tCaseTeam.length;y++){
-            System.out.println("prefs for team "+test[y].name);
-            for(int x=0;x<test[y].pref.length;x++){
-            
-            //if(test[2].pref[x]!=null&&test[2].pref[x].isEmpty()){
-                    System.out.println(test[y].pref[x]);  
-               // }
-          
-            }
-        }*/
+
         
         
         randomLocation randLoc=new randomLocation();
         randomOpponents randOpp=new randomOpponents();
         randomTime randTime=new randomTime();
-        randOpp.getTeams(test);
+        randOpp.getTeams(teamInfo);
         randOpp.initVal(tCasePark.length);
         randOpp.getMatches(tCaseMatches);
         randOpp.normRand(0);
@@ -141,35 +112,17 @@ public class MatchMakingSchedule {
             }
         }
         randLoc.getParks(tCasePark);
-        randLoc.initVal(8, test);
-        
-        
+        randLoc.initVal(8, teamInfo);
         randLoc.getMatches(tCaseMatches);
         randLoc.getOpps(0);
-        
-        
         randLoc.getPref();
-        /*randLoc.prefLeft();
-        randLoc.prefSort();*/
         randLoc.prefRand2(0);
-        //randLoc.prefSelect();
         randLoc.normRand(0);
         randLoc.storeInfo(0);
-        randTime.getInfo(tCasePark, test, tCaseMatches);
+        randTime.getInfo(tCasePark, teamInfo, tCaseMatches);
         randTime.getOpps(0);
         randTime.normRand(0);
-       /* System.out.println("results");
-        for(int x=0;)*/
-        //randLoc.test();
-       /* randLoc.prefRand(0);
-        randLoc.storeInfo(0);
-        // TODO code application logic here
-     /*   demo d=new demo();
-        d.getInfo();
-        d.lineSorting();
-        /*d.randOpp();
-        d.randLoc();
-        d.randTime();*/
+
     }
     
     
