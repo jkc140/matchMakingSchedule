@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import matchmakingschedule.*;
 public class MainMenu extends javax.swing.JFrame {
 
     /**
@@ -109,7 +110,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+String [][][][] matches;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         new Rules().setVisible(true);
@@ -118,7 +119,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
+        matches = MatchMakingSchedule.tCaseMatches;
         //createSchedule();
     }//GEN-LAST:event_jButton2ActionPerformed
 
