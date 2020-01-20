@@ -22,14 +22,19 @@ public class fileStore {
                 builder.append("|");
                 if(z==0){
                     builder.append("6:00pm");
+                    for(int w=0;w<matches[x][y][z].length;w++){
+                        builder.append("|");
+                        builder.append(matches[x][y][z][w]);
+                    }
                 }
                 else{
-                    builder.append("6:00pm");
+                    builder.append("7:00pm");
+                    for(int w=0;w<matches[x][y][z].length;w++){
+                        builder.append("|");
+                        builder.append(matches[x][y][z][w]);
+                    }
                 }       
-                for(int w=0;w<matches[x][y][z].length;w++){
-                    builder.append("|");
-                    builder.append(matches[x][y][z][w]);
-                }
+                
             }
             builder.append("\n");
         }
