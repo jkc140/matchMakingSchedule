@@ -15,7 +15,12 @@ import java.io.FileNotFoundException;
 public class fileReader {	
     String fName;	
     String[] rawData;	
-    String[][] teamInfo;	
+    String[][] teamInfo;
+    int numTeam;
+    String parkInfo;
+    String startDate;
+    String endDate;
+    String matchNum;
     public void getName(String name){	
         fName=name;	
         fName=name+".txt"; // got to make it so it checks to see if .txt is on it	
@@ -55,17 +60,14 @@ public class fileReader {
         }	
     }	
     public void sort(){	
-        int numTeam;	
+        	
         String[] teamNum=new String[2];	
         teamNum=rawData[0].split("/");	
         System.out.println("Team Num: "+teamNum[1]);	
         numTeam=Integer.valueOf(teamNum[1]);	
         int max=0;	
         int count=0;	
-        /*String tempHolder= lineStore[4].replace("/", "0");	
-        System.out.println("new line store: " +tempHolder);	
-        System.out.print("true/false: ");	
-        System.out.println( tempHolder.indexOf("/")!=-1);*/	
+	
         int[] splitter=new int[numTeam];	
         for(int x=3;x<3+numTeam;x++){	
             String tempHolder=rawData[x];	
@@ -104,4 +106,7 @@ public class fileReader {
             }	
         }	
     }	
+    public void storeInfo(){
+        
+    }
 }
