@@ -36,8 +36,9 @@ public class fileStore {
                 }       
                 
             }
-            builder.append("\n");
+            builder.append("/");
         }
+        builder.append("\n");
     }
     System.out.println(builder);
     /*
