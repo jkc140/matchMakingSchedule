@@ -73,7 +73,7 @@ public class fileReader {
             String tempHolder=rawData[x];	
             while(tempHolder.indexOf("/")!=-1){	
                 tempHolder=tempHolder.replaceFirst("/", "0");	
-                count++;;	
+                count++;	
                 System.out.println("Looping");	
             }	
             splitter[x-3]=count;	
@@ -107,6 +107,81 @@ public class fileReader {
         }	
     }	
     public void storeInfo(){
+        
+    }
+    
+    int matchNum2=0;
+    int parkNum=0;
+    String[][] parkArray;
+    String[] rawData2;
+    String[][][][] matchInfo;
+    String[][] parkDetail;
+    String[] parkList;
+    public void storeRead(){
+        
+        File storeFile=new File("Schedule.txt");
+        try{
+            Scanner length=new Scanner("Schedule.txt");
+            while(length.hasNextLine()==true){	
+                matchNum2++;	
+                length.nextLine();	
+            }
+            length.close();
+            
+            rawData2=new String[matchNum2];
+            Scanner storing=new Scanner("Schedule.txt");
+            int count=0;	
+            while(storing.hasNextLine()==true){	
+                rawData2[count]=storing.nextLine();	
+                count++;	
+            }
+            
+            
+            
+            
+        }
+        catch(Exception e){
+            
+        }
+    }
+    public void storeSort(){
+        String[] tempHolder=new String[rawData2.length];
+        for(int x=0;x<rawData2.length;x++){
+            tempHolder[x]=rawData2[x];
+            while(tempHolder[x].indexOf("/")!=-1){
+                tempHolder[x]=tempHolder[x].replaceFirst("/", "0");	
+                parkNum++;
+            }
+        }
+        matchInfo=new String[matchNum2][parkNum][2][2];
+        parkArray=new String[matchNum2][parkNum];
+        for(int x=0;x<matchNum2;x++){
+            for(int y=0;x<parkNum;y++){
+                parkArray[x]=rawData[x].split("/");
+            }
+        }
+        parkDetail=new String[parkNum][7];
+        for(int x=0;x<matchNum2;x++){
+            for(int y=0;x<parkNum;y++){
+                parkDetail[y]=parkArray[x][y].split("|");
+            }
+        }
+        for(int x=0;x<matchNum2;x++){
+            for(int y=0;y<parkNum;y++){
+                matchInfo[x][y][0][0]=parkDetail[y][2];
+                matchInfo[x][y][0][0]=parkDetail[y][3];
+                matchInfo[x][y][1][1]=parkDetail[y][5];
+                matchInfo[x][y][1][1]=parkDetail[y][6];
+                
+            }
+        }
+        parkList=new String[parkNum];
+        for(int x=0;x<parkNum;x++){
+            parkList[x]=parkDetail[x][0];
+        }
+
+    }
+    public void storeStore(){
         
     }
 }
