@@ -64,8 +64,8 @@ public class MatchMakingSchedule {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        fileStore fStore=new fileStore();
-        fStore.storeInfo( tCasePark.length, tCaseMatches, tCasePark);
+        tCaseInitVal();
+        
     /*    fileReader fRead=new fileReader();
         //fRead.getName(name);
         fRead.storeInfo();
@@ -124,7 +124,8 @@ public class MatchMakingSchedule {
         randTime.getInfo(tCasePark, teamInfo, tCaseMatches);
         randTime.getOpps(0);
         randTime.normRand(0);
-     
+        fileStore fStore=new fileStore();          
+        fStore.storeInfo(tCasePark.length, tCaseMatches, tCasePark);
      
         */
     /*
