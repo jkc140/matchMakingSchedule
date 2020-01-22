@@ -41,25 +41,17 @@ public class fileStore {
         builder.append("\n");
     }
     System.out.println(builder);
-    /*
-    for(int i = 0; i < Display.length; i++)//for each row
-    {
-       for(int j = 0; j < parkNum+2; j++)//for each column
-       {
-          builder.append(Display[i][j]+"");//append to the output string
-          if(j < parkNum+1)//if this is not the last row element
-             builder.append("|");//then add comma
-       }
-       builder.append("\n");//append new line at the end of the row
-    }
-    /*try{
-       BufferedWriter writer = new BufferedWriter(new FileWriter("Schedule.txt"));
+    
+    
+    try{
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Schedule.txt"));
         writer.write(builder.toString());//save the string representation of the board
+        System.out.println("Writing");
         writer.close(); 
     }
     catch(Exception e){
         System.out.println("error");
-    }*/
+    }
     
     }
     
