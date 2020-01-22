@@ -106,33 +106,33 @@ public class fileReader {
             }	
         }	
     }	
-    public void storeInfo(){
-        
-    }
-    
+  
     int matchNum2=0;
     int parkNum=0;
     String[][] parkArray;
     String[] rawData2;
-    String[][][][] matchInfo;
-    String[][] parkDetail;
-    String[] parkList;
+    public String[][][][] matchInfo;
+    public String[][]parkDetail;
+    public String[]parkList;    
     public void storeRead(){
-        
+        System.out.println("store read");
         File storeFile=new File("Schedule.txt");
         try{
-            Scanner length=new Scanner("Schedule.txt");
+            Scanner length=new Scanner(storeFile);
             while(length.hasNextLine()==true){	
+                System.out.println("hello");
                 matchNum2++;	
                 length.nextLine();	
             }
             length.close();
-            
+            System.out.println("matchNum: "+matchNum2);
             rawData2=new String[matchNum2];
-            Scanner storing=new Scanner("Schedule.txt");
+            System.out.println(rawData2);
+            Scanner storing=new Scanner(storeFile);
             int count=0;	
             while(storing.hasNextLine()==true){	
                 rawData2[count]=storing.nextLine();	
+                System.out.println("line: "+rawData2[count]);
                 count++;	
             }
             
@@ -145,43 +145,114 @@ public class fileReader {
         }
     }
     public void storeSort(){
-        String[] tempHolder=new String[rawData2.length];
-        for(int x=0;x<rawData2.length;x++){
-            tempHolder[x]=rawData2[x];
-            while(tempHolder[x].indexOf("/")!=-1){
-                tempHolder[x]=tempHolder[x].replaceFirst("/", "0");	
+        System.out.println("store stort");
+        String tempHolder;
+        //for(int x=0;x<rawData2.length;x++){
+            tempHolder=rawData2[0];
+            while(tempHolder.indexOf("/")!=-1){
+                System.out.println("parkNum1: "+parkNum);
                 parkNum++;
+                tempHolder=tempHolder.replaceFirst("/", "0");	
+                
+                System.out.println("parkNum2: "+parkNum);
             }
-        }
+        //}
+        System.out.println("parkNum: "+parkNum);
         matchInfo=new String[matchNum2][parkNum][2][2];
         parkArray=new String[matchNum2][parkNum];
+        /*System.out.println("here 1");
         for(int x=0;x<matchNum2;x++){
-            for(int y=0;x<parkNum;y++){
-                parkArray[x]=rawData[x].split("/");
-            }
-        }
-        parkDetail=new String[parkNum][7];
-        for(int x=0;x<matchNum2;x++){
-            for(int y=0;x<parkNum;y++){
-                parkDetail[y]=parkArray[x][y].split("|");
-            }
-        }
-        for(int x=0;x<matchNum2;x++){
+            System.out.println("here 1.1");
+            
             for(int y=0;y<parkNum;y++){
+                System.out.println("here 2");
+                parkArray[x]=rawData2[x].split("/");
+                System.out.println("parkArray[y]: "+parkArray[0][0]);
+                System.out.println("parkArray[y]: "+parkArray[1]);
+            }
+            
+        }*/
+        System.out.println("here 2");
+        parkDetail=new String[parkNum][7];
+        for(int x=0;x<matchNum2;x++){     
+            System.out.println("parkNum 2: "+parkNum);
+            for(int y=0;y<parkNum;y++){
+               /* System.out.println("x: "+x);
+                System.out.println("y: "+y);
+               
+                System.out.println("parkDetail: "+parkDetail.length);
+                System.out.println("parkArray[x][y]: "+parkArray[x].length);
+                System.out.println("parkNum: "+parkNum);*/
+               
+                parkArray[x]=rawData2[x].split("/");
+                System.out.println("parkArray[y]: "+parkArray[x][y]);
+                parkDetail[y]=parkArray[x][y].split("&");
+                //System.out.println(parkDetail[y].length);
+                for(int a=0;a<parkDetail[y].length;a++){
+                    
+                   /* if(a==2){
+                        matchInfo[x][y][0][0]=parkDetail[y][a];
+                    }
+                    else if(a==3){
+                        matchInfo[x][y][0][1]=parkDetail[y][a];
+                    }
+                    else if(a==5){
+                        matchInfo[x][y][1][0]=parkDetail[y][a];
+                    }
+                    else if(a==6){
+                        
+                    }*/
+                    
+                        System.out.println(a);
+                        System.out.println(parkDetail[y][a]);
+                       /* System.out.println(parkDetail[2]);
+                        System.out.println(parkDetail[3]);
+                        System.out.println(parkDetail[5]);
+                        System.out.println(parkDetail[6]);*/
+                }
                 matchInfo[x][y][0][0]=parkDetail[y][2];
-                matchInfo[x][y][0][0]=parkDetail[y][3];
-                matchInfo[x][y][1][1]=parkDetail[y][5];
-                matchInfo[x][y][1][1]=parkDetail[y][6];
+                    matchInfo[x][y][0][1]=parkDetail[y][3];
+                    matchInfo[x][y][1][0]=parkDetail[y][5];
+                    matchInfo[x][y][1][1]=parkDetail[y][6];
+                /*System.out.println("her");
+                System.out.println("parkList: "+parkNum);
+                System.out.println("y: "+y);
+                System.out.println(parkDetail[0]);
+                //parkList[y]=parkDetail[0];
+                System.out.println("her");
+                */
+                
+                
                 
             }
+            System.out.println("next match");
         }
+        /*for(int x=0;x<matchNum2;x++){     
+            for(int y=0;y<parkNum;y++){
+
+                for(int a=0;a<parkDetail.length;a++){
+
+                    
+                        System.out.println(a);
+                        System.out.println(parkDetail[a]);
+
+                }
+              
+                
+                
+                
+            }
+            System.out.println("next match");
+        }*/
+        System.out.println("here 3");
         parkList=new String[parkNum];
         for(int x=0;x<parkNum;x++){
+            System.out.println(parkDetail[0]);
             parkList[x]=parkDetail[x][0];
+            
         }
+        System.out.println("end");
 
     }
-    public void storeStore(){
-        
-    }
+    
 }
