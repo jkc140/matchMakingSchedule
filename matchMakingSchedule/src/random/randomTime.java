@@ -18,6 +18,8 @@ public class randomTime {
     String[][][][] matches;
     String[][] Opp;
     int[][] oppTime;
+    
+    //getting information
     public void getInfo(String[] parkInfo,teams[] teams,String[][][][] matchInfo){
         parkNum=parkInfo.length;
         parkList=new String[parkNum];        
@@ -32,6 +34,8 @@ public class randomTime {
         matches=matchInfo;
         oppTime=new int[2][parkNum];
     }
+    
+    //gets the opponents for each park
     public void getOpps(int matchNum){
         int pairNum=(int)Math.ceil(teamInfo.length/2);
         Opp=new String[pairNum][2];
@@ -50,21 +54,15 @@ public class randomTime {
             for(int x=0;x<parkList.length;x++){
             }
     }
+    
+    //randonly assign them a time
     public void normRand(int matchNum){
-        int countT1=0;
-        int countT2=0;
         String[]tempTeam=new String[2];
         String[] changeTeam=new String[2];
         Random rand=new Random();
         for(int x=0;x<parkList.length;x++){
             int randTeam=rand.nextInt(2);
             int randTime=rand.nextInt(2);
-            /*if(countT1==oppTime[0].length){
-                randVal=1;
-            }
-            else if(countT1==oppTime[0].length){
-                randVal=0;
-            }*/
             if(randTeam==0){
                 changeTeam[0]=matches[matchNum][x][0][0];
                 changeTeam[1]=matches[matchNum][x][0][1];
@@ -82,12 +80,8 @@ public class randomTime {
                     MatchMakingSchedule.matchInfo[matchNum][x][0][1]=tempTeam[1];        
                     MatchMakingSchedule.matchInfo[matchNum][x][1][0]=changeTeam[0];
                     MatchMakingSchedule.matchInfo[matchNum][x][1][1]=changeTeam[1]; 
-                }
-                
-                
-                
-            }               
-            
+                }                
+            }
             else if(randTeam==1){
                 changeTeam[0]=matches[matchNum][x][1][0];
                 changeTeam[1]=matches[matchNum][x][1][1];
@@ -105,11 +99,7 @@ public class randomTime {
                     MatchMakingSchedule.matchInfo[matchNum][x][0][1]=tempTeam[1];        
                     MatchMakingSchedule.matchInfo[matchNum][x][1][0]=changeTeam[0];
                     MatchMakingSchedule.matchInfo[matchNum][x][1][1]=changeTeam[1]; 
-                }
-                
-                
-                
-                              
+                }            
             }
         }
         for(int x=0;x<parkList.length;x++){
@@ -119,6 +109,5 @@ public class randomTime {
                 System.out.println(matches[matchNum][x][y][1]);
             }
         }
-        
     }
 }
