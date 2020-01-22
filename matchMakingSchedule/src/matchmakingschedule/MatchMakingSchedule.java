@@ -63,12 +63,10 @@ public class MatchMakingSchedule {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        tCaseInitVal();
-        
-    /*    fileReader fRead=new fileReader();
-        //fRead.getName(name);
-        fRead.storeInfo();
+    public static void main(String args) {
+        tCaseInitVal();        
+        fileReader fRead=new fileReader();
+        fRead.getName(args);        
         fRead.sort();
         teams[] teamInfo=new teams[fRead.numTeam];
 
@@ -76,8 +74,8 @@ public class MatchMakingSchedule {
         for(int x=0;x<teamInfo.length;x++){
             teamInfo[x]=new teams();
             teamInfo[x].name=fRead.teamInfo[x][0];   
-            teamInfo[x].initVal(teamInfo.length/*,x);
-    /*    }
+            teamInfo[x].initVal(teamInfo.length/*,x*/);
+       }
         for(int x=0;x<teamInfo.length;x++){
             int count=0;
             teamInfo[x].prefInit(fRead.teamInfo[x].length);
@@ -127,13 +125,12 @@ public class MatchMakingSchedule {
         fileStore fStore=new fileStore();          
         fStore.storeInfo(tCasePark.length, tCaseMatches, tCasePark);
      
-        */
     /*
     //she looking at planning
     //code itself
     //process
         //comments    
     */
-    
+        
     }    
 }
