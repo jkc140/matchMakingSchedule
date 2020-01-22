@@ -135,12 +135,12 @@ public class randomLocation extends Rand{
                     for(int a=0;a<2;a++){
     //                    System.out.println("storing opponents");
                         if(z==0){
-    /*                        System.out.println("y"+y);
+                            System.out.println("y"+y);
                             System.out.println("z"+z);
                             System.out.println("a"+a);
                             System.out.println("matches select:"+matches[0][0][0][0]);
                             System.out.println("matches:"+matches[matchNum][y][z][a]);
-     */                       Opp[y][a]=matches[matchNum][y][z][a];
+                            Opp[y][a]=matches[matchNum][y][z][a];
     //                        System.out.println("opp:"+Opp[y][a]);
                         }
                         if (z==1){
@@ -159,7 +159,58 @@ public class randomLocation extends Rand{
       //  }
     }
     
-    
+    public void prefRand3(){
+        boolean valid=false;
+        boolean valid2=false;
+        int randVal;
+        Random rand=new Random();            
+        for(int x=0;x<2;x++){
+            for(int y=0;y<parkList.length;y++){
+                System.out.println("used: "+used[y][x]);
+                if(used[y][x]==false){
+                    System.out.println("used in");
+     //               System.out.println("random for:  "+parkList[y]);
+                    do{
+                        System.out.println("prefList length: "+prefList[y].length);
+                        System.out.println("remove: "+remove[y]);
+                        randVal= rand.nextInt(prefList[y].length);
+   //                     System.out.println("rand Team: "+teamInfo[randVal].name);
+                        if(randVal==prefList[y].length+prefBase){
+    //                        System.out.println("out of bounds");
+                            valid =false;
+                        }
+                        else{
+                            System.out.println(alreadyHas[randVal]);
+                            if(alreadyHas[randVal]==true){
+     //                           System.out.println("already has int prefRand");
+                                valid=false;
+                            }
+                            else{
+     //                           System.out.println("does not have");
+                                valid2=true;
+                                System.out.println("randVal: "+randVal);
+                                System.out.println("alreadyHas: "+alreadyHas[randVal]);
+                                alreadyHas[randVal]=true;
+                                prefList[y][randVal]=prefList[y].length+prefBase;
+                            }
+                        }
+                    }while(valid2==false);
+                    tempSelect[y][x]=teamInfo[randVal].name;
+                    used[y][x]=true;
+                    for(int w=0;w<Opp.length;w++){
+                        if(teamInfo[randVal].name.equalsIgnoreCase(Opp[w][0])||teamInfo[randVal].name.equalsIgnoreCase(Opp[w][0])){
+                            alreadyHas[w]=true;
+                        }
+                    }
+
+                    //do the random
+                }
+                else{
+                    //continue on
+                }
+            }                   
+        }            
+    }
      
     public void prefLeft(){
        int anyMore=0;
@@ -735,8 +786,8 @@ public class randomLocation extends Rand{
                            System.out.println("parks and opp");
                            System.out.println(matches[matchNum][y][x][0]=Opp[z][0]);
                            System.out.println(matches[matchNum][y][x][1]=Opp[z][1]);
-                           MatchMakingSchedule.tCaseMatches[matchNum][y][x][0]=Opp[z][0];
-                           MatchMakingSchedule.tCaseMatches[matchNum][y][x][1]=Opp[z][1];
+                           MatchMakingSchedule.matchInfo[matchNum][y][x][0]=Opp[z][0];
+                           MatchMakingSchedule.matchInfo[matchNum][y][x][1]=Opp[z][1];
                        } //only loops 3 times, when 4 teams should be assigned (at least only outputs 3 times)
                     }
                 }
