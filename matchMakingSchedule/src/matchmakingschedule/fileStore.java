@@ -13,6 +13,7 @@ import java.io.*;
  * @author S331474817
  */
 public class fileStore {
+    //stores the info into a file
     public void storeInfo(int parkNum,String[][][][] matches,String[] parkList){
     StringBuilder builder = new StringBuilder();
     for(int x=0;x<matches.length;x++){
@@ -40,8 +41,7 @@ public class fileStore {
         }
         builder.append("\n");
     }
-    System.out.println(builder);
-    
+   
     
     try{
         BufferedWriter writer = new BufferedWriter(new FileWriter("Schedule.txt"));
