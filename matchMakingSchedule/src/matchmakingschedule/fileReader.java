@@ -26,16 +26,17 @@ public class fileReader {
         fName=name+".txt"; // got to make it so it checks to see if .txt is on it	
     }	
     public void fileRead(){	
+        System.out.println(fName);
         File dataFile=new File(fName);	
         try{	
             if(dataFile.createNewFile()==true){ 	
-                System.out.println("File is already there"); //delete me	
+                System.out.println("Creating"); //delete me	
             }	
             else{                	
-                System.out.println("File is not there"); //delete me	
+                System.out.println("File is already there"); //delete me	
             }	
 
-            Scanner arrayLength=new Scanner(fName);	
+            Scanner arrayLength=new Scanner(dataFile);	
             int numLine=0;	
             while(arrayLength.hasNextLine()==true){	
                 numLine++;	
@@ -44,11 +45,13 @@ public class fileReader {
             arrayLength.close();	
             rawData=new String[numLine];	
 
-            Scanner storeData=new Scanner(fName);	
+            Scanner storeData=new Scanner(dataFile);	
             int count=0;	
             while(storeData.hasNextLine()==true){	
                 rawData[count]=storeData.nextLine();	
-                count++;	
+    //            System.out.println(rawData[count]);
+                count++;
+                
             }	
             storeData.close();	
 
@@ -60,10 +63,12 @@ public class fileReader {
         }	
     }	
     public void sort(){	
-        	
+        for(int x=0;x<rawData.length;x++){
+            System.out.println(rawData[x]);
+        }	
         String[] teamNum=new String[2];	
         teamNum=rawData[0].split("/");	
-        System.out.println("Team Num: "+teamNum[1]);	
+    //    System.out.println("Team Num: "+teamNum[1]);	
         numTeam=Integer.valueOf(teamNum[1]);	
         int max=0;	
         int count=0;	
@@ -74,21 +79,21 @@ public class fileReader {
             while(tempHolder.indexOf("/")!=-1){	
                 tempHolder=tempHolder.replaceFirst("/", "0");	
                 count++;	
-                System.out.println("Looping");	
+     //           System.out.println("Looping");	
             }	
             splitter[x-3]=count;	
-            System.out.println(count);	
+   //         System.out.println(count);	
             if (count>max){	
                 max=count;	
             }	
             count=0;	
         }	
-        System.out.println("text splittiung");	
+    //    System.out.println("text splittiung");	
         for(int x=0;x<numTeam;x++){	
-            System.out.println(splitter[x]);	
+    //        System.out.println(splitter[x]);	
         }	
-        System.out.println("text splittiung");	
-        System.out.println(max);	
+   //     System.out.println("text splittiung");	
+   //     System.out.println(max);	
         teamInfo=new String[numTeam][max+2];	
         for(int x=0;x<numTeam;x++){	
             teamInfo[x][max+1]=String.valueOf(splitter[x]);	
@@ -99,10 +104,10 @@ public class fileReader {
         }	
         for(int x=0;x<numTeam;x++){	
            // System.out.println("changing line");	
-            System.out.println(splitter[x]+1);	
+    //        System.out.println(splitter[x]+1);	
             for(int y=0;y<splitter[x]+1;y++){	
                // System.out.println("Spot");	
-                System.out.println(teamInfo[x][y]);	
+    //            System.out.println(teamInfo[x][y]);	
             }	
         }	
         int skipCount=3+numTeam+2;
@@ -112,19 +117,19 @@ public class fileReader {
                 count++;;
             }
         parkInfo=new String[count];
-        System.out.println("parks: ");
+    //    System.out.println("parks: ");
         //for(int x=skipCount;x<3+numTeam;x++){
             parkInfo=rawData[skipCount].split("/");
             //System.out.println(lineStore[x]);
             for(int x=0;x<parkInfo.length;x++){
-                System.out.println(parkInfo[x]);
+   //             System.out.println(parkInfo[x]);
 
             }
             skipCount=skipCount+2;
-            System.out.println(skipCount);
-                        System.out.println(skipCount+1);
+    //        System.out.println(skipCount);
+                        /*System.out.println(skipCount+1);
                         System.out.println(skipCount+2);
-                        System.out.println(skipCount+3);           
+                        System.out.println(skipCount+3);   */        
             startDate=rawData[skipCount].split("/");
             endDate=rawData[skipCount+1].split("/");
             matchNum=rawData[skipCount+2].split("/");
@@ -132,9 +137,9 @@ public class fileReader {
                 System.out.println("startDate");
                  System.out.println(startDate[x]);
             }*/
-            System.out.println(startDate[1]);
-            System.out.println(endDate[1]);
-            System.out.println(matchNum[1]);
+    //        System.out.println(startDate[1]);
+   //         System.out.println(endDate[1]);
+   //         System.out.println(matchNum[1]);
     }	
   
     int matchNum2=0;
@@ -220,60 +225,24 @@ public class fileReader {
                 //System.out.println(parkDetail[y].length);
                 for(int a=0;a<parkDetail[y].length;a++){
                     
-                   /* if(a==2){
-                        matchInfo[x][y][0][0]=parkDetail[y][a];
-                    }
-                    else if(a==3){
-                        matchInfo[x][y][0][1]=parkDetail[y][a];
-                    }
-                    else if(a==5){
-                        matchInfo[x][y][1][0]=parkDetail[y][a];
-                    }
-                    else if(a==6){
-                        
-                    }*/
+
                     
                         System.out.println(a);
                         System.out.println(parkDetail[y][a]);
-                       /* System.out.println(parkDetail[2]);
-                        System.out.println(parkDetail[3]);
-                        System.out.println(parkDetail[5]);
-                        System.out.println(parkDetail[6]);*/
+
                 }
-                matchInfo[x][y][0][0]=parkDetail[y][2];
+                    matchInfo[x][y][0][0]=parkDetail[y][2];
                     matchInfo[x][y][0][1]=parkDetail[y][3];
                     matchInfo[x][y][1][0]=parkDetail[y][5];
                     matchInfo[x][y][1][1]=parkDetail[y][6];
-                /*System.out.println("her");
-                System.out.println("parkList: "+parkNum);
-                System.out.println("y: "+y);
-                System.out.println(parkDetail[0]);
-                //parkList[y]=parkDetail[0];
-                System.out.println("her");
-                */
+                
                 
                 
                 
             }
             System.out.println("next match");
         }
-        /*for(int x=0;x<matchNum2;x++){     
-            for(int y=0;y<parkNum;y++){
-
-                for(int a=0;a<parkDetail.length;a++){
-
-                    
-                        System.out.println(a);
-                        System.out.println(parkDetail[a]);
-
-                }
-              
-                
-                
-                
-            }
-            System.out.println("next match");
-        }*/
+       
         System.out.println("here 3");
         parkList=new String[parkNum];
         for(int x=0;x<parkNum;x++){
