@@ -47,6 +47,9 @@ public class randomOpponents {
     public void normRand(int matchNum){
         Random rand=new Random();
         //System.out.println("hello");
+        for(int x=0;x<hasTeam.length;x++){
+            hasTeam[x]=false;
+        }
         for(int x=0;x<2;x++){
            // System.out.println("setting teams for time "+x);
            // System.out.println("parkNum" +parkNum);
@@ -54,9 +57,10 @@ public class randomOpponents {
            //     System.out.println("Helo");
            //     System.out.println("setting teams for park "+y);
                 do{
-            //        System.out.println("selecting first team");
+                    System.out.println("selecting first team");
                     opp=rand.nextInt(teamNum);
-            //        System.out.println("opp: "+opp);
+                    System.out.println("opp: "+opp);
+                    System.out.println(teams[opp].name);
                     if(hasTeam[opp]==true){
                         valid=false;
             //             System.out.println("team already chosed");
@@ -68,11 +72,12 @@ public class randomOpponents {
                     }                    
                 }while(valid==false);
             //    System.out.println("assinging 1 team to match making");
-                MatchMakingSchedule.tCaseMatches[matchNum][x][y][0]=teams[opp].name;
+                MatchMakingSchedule.matchInfo[matchNum][x][y][0]=teams[opp].name;
                 do{
-            //        System.out.println("selecting second team");
+                    System.out.println("selecting second team");
                     opp2=rand.nextInt(teamNum);
-            //        System.out.println("opp2: "+opp2);
+                    System.out.println("opp2: "+opp2);
+                    System.out.println(teams[opp2].name);
                     if(hasTeam[opp2]==true){
                         valid=false;
             //            System.out.println("team already chosed");
@@ -117,8 +122,8 @@ public class randomOpponents {
                     }
                 }while(valid==false);
                     
-            //    System.out.println("assinging 2 team to matches");
-                MatchMakingSchedule.tCaseMatches[matchNum][x][y][1]=teams[opp2].name;                
+                System.out.println("assinging 2 team to matches");
+                MatchMakingSchedule.matchInfo[matchNum][x][y][1]=teams[opp2].name;                
             }
         }
     }
