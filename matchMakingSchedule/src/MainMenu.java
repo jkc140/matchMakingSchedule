@@ -124,46 +124,70 @@ String [][][][] matches;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        fileReader fReader=new fileReader();
+        fReader.storeRead();
+        fReader.storeSort();
+// TODO add your handling code here:
         //new Schedule().setVisible(true);
-        /*String [][][][] matches = new String[34][5][2][2];
-        String [][] Display = new String[matches.length][7];
+        String [][][][] matches = new String[34][5][2][2];
+        String [][] Display = new String[fReader.matchInfo.length][fReader.parkList.length+2];
         int[] matchNum = {2,3,4,5,6};
-        int counter = 1;
-
-        System.out.println(String.valueOf(matches[0]));
-        for (int x = 0; x<(matches.length*2); x++){
-
-            for(int z=0;z<1;z++){
-
-                if ((counter%2)> 0){
-                    Display [x][1]= "6:00 PM";
+        int counter = 0;
+        int z=0;
+        System.out.println("Hello");
+        System.out.println(String.valueOf(fReader.matchInfo[0]));
+        for (int x = 0; x<(fReader.matchInfo.length); x++){
+                System.out.println("nextMatch");
+                System.out.println("count: "+counter);
+            //for(int z=0;z<2;z++){
+                Display[counter][0]=String.valueOf(x);
+                //System.out.println("z: "+x);
+                if (x%2==0){
+                    Display [counter][1]= "6:00 PM";
+                    z=0;
                 }
                 else {
-                    Display [x][1]= "7:00 PM";
+                    Display [counter][1]= "7:00 PM";
+                    z=1;
                 }
-                counter++;
-
-                for(int y=0;y< matches[x].length;y++){
-                    for (int a=0;a<1;a++){
-                        String team = (matches[x][y][z][0]+ " VS. "+matches[x][y][z][1]);
-                        Display[x][matchNum[y]]= team;
-                    }
+                
+                int count=2;
+                for(int y=0;y< fReader.matchInfo[x].length;y++){
+                   /* System.out.println("x: "+x);
+                    System.out.println("y: "+y);
+                    System.out.println("z: "+z);
+                    
+                        System.out.println(fReader.matchInfo[x][y][z][0]);*/
+                        String team = (fReader.matchInfo[x][y][z][0]+ " VS. "+fReader.matchInfo[x][y][z][1]);
+                        //System.out.println("team: "+team);
+                        Display[x][count]= team;
+                        count++;
                 }
-            }
-
-        }*/
-        String[][] Values = {
-            { "matchNum", "Time", "opp at park 1", "opp at park 2", "opp at park 3", "opp at park 4","opp at park 6" },
-            { "matchNum", "Time", "opp at park 1", "opp at park 2", "opp at park 3", "opp at park 4","opp at park 6" },
-            { "matchNum1", "Time1", "opp at park 1", "opp at park 2", "opp at park 3", "opp at park 4","opp at park 6" },
-            { "matchNum2", "Time2", "opp at park 1", "opp at park 2", "opp at park 3", "opp at park 4","opp at park 6" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" }
-        };
-      String Titles[] = { "Match", "Time", "Park1", "Park2", "Park3", "Park4","Park5"};
-      JTable table = new JTable(Values, Titles);
+           // }
+            counter++;
+        }
+        //System.out.println("parkList: "+fReader.parkList.length);
+      String Titles[] = new String[fReader.parkList.length+2];
+      //System.out.println("Titles: "+Titles.length);
+     // System.out.println(fReader.parkList.length);
+      Titles[0]="Match";
+      Titles[1]="Time";
+      int count=2;
+    //  System.out.println("poarkNum: " + fReader.parkList.length);
+      for(int x=0;x<fReader.parkList.length;x++){
+          Titles[count]=fReader.parkList[x];
+          count++;
+      }
+     // System.out.println("Before table"); 
+      /*for(int x=0;x<Display.length;x++){
+          System.out.println("row: "+x);
+          for(int y=0;y<Display[x].length;y++){
+              System.out.println("column: "+y);
+              System.out.println(Display[x][y]);
+          }
+          
+      }*/
+      JTable table = new JTable(Display, Titles);
       Font font = new Font("Verdana", Font.PLAIN, 12);
       table.setFont(font);
       table.setRowHeight(30);
