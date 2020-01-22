@@ -1,0 +1,18 @@
+number of teams/8
+
+teams
+Hubert/park1
+Charlie/park1/park2
+Hector/park1/park2
+Arm3
+teamInfo7/park1/park2
+Albert/park1/park2
+Team4/park2
+George/park1
+
+parks
+park1/park2
+
+Start Date/February 21
+End Date/August 30
+Number of Matches/1
