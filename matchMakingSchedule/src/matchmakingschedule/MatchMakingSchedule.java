@@ -66,17 +66,20 @@ public class MatchMakingSchedule {
      */
     public static void main(String args) {
         
-        tCaseInitVal();        
         fileReader fRead=new fileReader();
-        fRead.getName(args);        
+        
+        fRead.getName(args);
+        fRead.fileRead();        
         fRead.sort();
         teams[] teamInfo=new teams[fRead.numTeam];
         matchInfo=new String[Integer.valueOf(fRead.matchNum[1])][fRead.parkInfo.length][2][2];
         
         for(int x=0;x<teamInfo.length;x++){
+            System.out.println("storing info in teams array");
             teamInfo[x]=new teams();
-            teamInfo[x].name=fRead.teamInfo[x][0];   
-            teamInfo[x].initVal(teamInfo.length/*,x*/);
+            teamInfo[x].name=fRead.teamInfo[x][0];
+            System.out.println(teamInfo[x].name);
+            teamInfo[x].initVal(teamInfo.length);
        }
         for(int x=0;x<teamInfo.length;x++){
             int count=0;
@@ -98,27 +101,32 @@ public class MatchMakingSchedule {
         }
 
         
-        
-        randomLocation randLoc=new randomLocation();
+        for(int x=0;x<Integer.valueOf(fRead.matchNum[1]);x++){
+            randomLocation randLoc=new randomLocation();
         randomOpponents randOpp=new randomOpponents();
         randomTime randTime=new randomTime();
         randOpp.getTeams(teamInfo);        
         randOpp.initVal(fRead.parkInfo.length);
         randOpp.getMatches(matchInfo);
-        randOpp.normRand(0);        
+        randOpp.normRand(x);    
+        for(int y=0;y<teamInfo.length;y++){
+            teamInfo[x].reset();
+        }
         randLoc.getParks(fRead.parkInfo);
-        randLoc.initVal(8, teamInfo);
+        randLoc.initVal(teamInfo.length, teamInfo);
         randLoc.getMatches(matchInfo);
-        randLoc.getOpps(0);
+        randLoc.getOpps(x);
         randLoc.getPref();
-        randLoc.prefRand2(0);
-        randLoc.normRand(0);
-        randLoc.storeInfo(0);
+        randLoc.prefRand3();
+        randLoc.normRand(x);
+        randLoc.storeInfo(x);
         randTime.getInfo(fRead.parkInfo, teamInfo, matchInfo);
-        randTime.getOpps(0);
-        randTime.normRand(0);
+        randTime.getOpps(x);
+        randTime.normRand(x);
         fileStore fStore=new fileStore();          
         fStore.storeInfo(fRead.parkInfo.length, matchInfo, fRead.parkInfo);
+        }
+        
      
     /*
     //she looking at planning
