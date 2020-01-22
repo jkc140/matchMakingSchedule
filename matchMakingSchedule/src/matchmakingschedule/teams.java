@@ -42,15 +42,7 @@ public class teams {
             pref[x-1]=fileInfo[teamNum][x];
         }
     }
-    public void getOpponent(){
-        
-    }
-    public void getTime(){
-        
-    }
-    public void getLoc(){
-        
-    }
+
     public void matchInit(int TEMP){
         match=new String[TEMP][4];
     }
@@ -67,13 +59,21 @@ public class teams {
         }
         //teamSlotNum=slotNum;
     }
-    /*public void getOppPlayed(String team,int slotNum){
-        if(teamSlotNum>slotNum){
-            prevOpp[slotNum]=true;
+    
+    public void reset(){
+        int count=0;
+        for(int x=0;x<prevOpp.length;x++){
+            if(prevOpp[x]==true){
+                count++;
+            }
+            else{
+                count=0;
+            }
         }
-        else if(teamSlotNum<=slotNum){
-            prevOpp[slotNum-1]=true;
+        if(count==prevOpp.length){
+            for(int x=0;x<prevOpp.length;x++){
+                prevOpp[x]=false;
+            }
         }
-        
-    }*/ //DONT NEED AS IT WAS HARD CODED INTO THE RANDOM OPP CLASS
+    }
 }
