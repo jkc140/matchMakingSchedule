@@ -72,16 +72,16 @@ public class randomTime {
                 tempTeam[1]=matches[matchNum][x][1][1];
                 
                 if(randTime==0){
-                    matches[matchNum][x][0][0]=changeTeam[0];
-                    matches[matchNum][x][0][1]=changeTeam[1];        
-                    matches[matchNum][x][1][0]=tempTeam[0];
-                    matches[matchNum][x][1][1]=tempTeam[1]; 
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][0]=changeTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][1]=changeTeam[1];        
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][0]=tempTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][1]=tempTeam[1]; 
                 }
                 else if(randTime==1){
-                    matches[matchNum][x][0][0]=tempTeam[0];
-                    matches[matchNum][x][0][1]=tempTeam[1];        
-                    matches[matchNum][x][1][0]=changeTeam[0];
-                    matches[matchNum][x][1][1]=changeTeam[1]; 
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][0]=tempTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][1]=tempTeam[1];        
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][0]=changeTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][1]=changeTeam[1]; 
                 }
                 
                 
@@ -95,16 +95,16 @@ public class randomTime {
                 tempTeam[1]=matches[matchNum][x][0][1];
                 
                 if(randTime==0){
-                    matches[matchNum][x][0][0]=changeTeam[0];
-                    matches[matchNum][x][0][1]=changeTeam[1];        
-                    matches[matchNum][x][1][0]=tempTeam[0];
-                    matches[matchNum][x][1][1]=tempTeam[1]; 
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][0]=changeTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][1]=changeTeam[1];        
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][0]=tempTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][1]=tempTeam[1]; 
                 }
                 else if(randTime==1){
-                    matches[matchNum][x][0][0]=tempTeam[0];
-                    matches[matchNum][x][0][1]=tempTeam[1];        
-                    matches[matchNum][x][1][0]=changeTeam[0];
-                    matches[matchNum][x][1][1]=changeTeam[1]; 
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][0]=tempTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][0][1]=tempTeam[1];        
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][0]=changeTeam[0];
+                    MatchMakingSchedule.matchInfo[matchNum][x][1][1]=changeTeam[1]; 
                 }
                 
                 
