@@ -86,6 +86,7 @@ public class randomLocation extends Rand{
      
         
     }
+    //Gets the preffered park for the teams
     public void getPref(){
         //System.out.println("Getpref");
 
@@ -235,6 +236,7 @@ public class randomLocation extends Rand{
        }*/
                     
     }
+    //selects a random park from prefernces
         public void prefSelect(){
         Random rand=new Random();
         /*int slotNum1=0;
