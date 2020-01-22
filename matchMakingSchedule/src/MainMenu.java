@@ -130,41 +130,36 @@ String [][][][] matches;
 // TODO add your handling code here:
         //new Schedule().setVisible(true);
         String [][][][] matches = new String[34][5][2][2];
-        String [][] Display = new String[fReader.matchInfo.length][fReader.parkList.length+2];
+        String [][] Display = new String[fReader.matchInfo.length*2][fReader.parkList.length+2];
         int[] matchNum = {2,3,4,5,6};
-        int counter = 0;
-        int z=0;
+        int counter = 1;
+        int col=0;
+        //int z=0;
         System.out.println("Hello");
-        System.out.println(String.valueOf(fReader.matchInfo[0]));
         for (int x = 0; x<(fReader.matchInfo.length); x++){
                 System.out.println("nextMatch");
-                System.out.println("count: "+counter);
-            //for(int z=0;z<2;z++){
-                Display[counter][0]=String.valueOf(x);
-                //System.out.println("z: "+x);
-                if (x%2==0){
-                    Display [counter][1]= "6:00 PM";
-                    z=0;
+                System.out.println("count: "+col);
+              
+            for(int a=0;a<2;a++){
+                 Display[col][0]=String.valueOf(x);
+                if (a%2==0){
+                    Display [col][1]= "6:00 PM";
                 }
                 else {
-                    Display [counter][1]= "7:00 PM";
-                    z=1;
+                    Display [col][1]= "7:00 PM";
                 }
-                
                 int count=2;
                 for(int y=0;y< fReader.matchInfo[x].length;y++){
-                   /* System.out.println("x: "+x);
-                    System.out.println("y: "+y);
-                    System.out.println("z: "+z);
-                    
-                        System.out.println(fReader.matchInfo[x][y][z][0]);*/
-                        String team = (fReader.matchInfo[x][y][z][0]+ " VS. "+fReader.matchInfo[x][y][z][1]);
-                        //System.out.println("team: "+team);
-                        Display[x][count]= team;
-                        count++;
+                    String team = (fReader.matchInfo[x][y][a][0]+ " VS. "+fReader.matchInfo[x][y][a][1]);
+                    Display[a][count]= team;
+                    count++;
                 }
-           // }
-            counter++;
+                col++;       
+                System.out.println("Here4");
+            }
+            col++;
+                
+            
         }
         //System.out.println("parkList: "+fReader.parkList.length);
       String Titles[] = new String[fReader.parkList.length+2];
