@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import matchmakingschedule.*;
 public class MainMenu extends javax.swing.JFrame {
 
     /**
@@ -109,60 +110,66 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+String [][][][] matches;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Displays the rules
         new Rules().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-
+        //asking user for file name
+        new GetFileName().setVisible(true);
+        this.setVisible(false);
         //createSchedule();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        //new Schedule().setVisible(true);
-        /*String [][][][] matches = new String[34][5][2][2];
-        String [][] Display = new String[matches.length][7];
+        //displaying the file
+        fileReader fReader=new fileReader();
+        fReader.storeRead();
+        fReader.storeSort();
+// TODO add your handling code here:
+        String [][][][] matches = new String[34][5][2][2];
+        String [][] Display = new String[fReader.matchInfo.length*2][fReader.parkList.length+2];
         int[] matchNum = {2,3,4,5,6};
         int counter = 1;
+        int col=0;
+        
+        //setting values to data
+        for (int x = 0; x<(fReader.matchInfo.length); x++){
 
-        System.out.println(String.valueOf(matches[0]));
-        for (int x = 0; x<(matches.length*2); x++){
-
-            for(int z=0;z<1;z++){
-
-                if ((counter%2)> 0){
-                    Display [x][1]= "6:00 PM";
+              
+            for(int a=0;a<2;a++){
+                 Display[col][0]=String.valueOf(x);
+                if (a%2==0){
+                    Display [col][1]= "6:00 PM";
                 }
                 else {
-                    Display [x][1]= "7:00 PM";
+                    Display [col][1]= "7:00 PM";
                 }
-                counter++;
-
-                for(int y=0;y< matches[x].length;y++){
-                    for (int a=0;a<1;a++){
-                        String team = (matches[x][y][z][0]+ " VS. "+matches[x][y][z][1]);
-                        Display[x][matchNum[y]]= team;
-                    }
+                int count=2;
+                for(int y=0;y< fReader.matchInfo[x].length;y++){
+                    String team = (fReader.matchInfo[x][y][a][0]+ " VS. "+fReader.matchInfo[x][y][a][1]);
+                    Display[a][count]= team;
+                    count++;
                 }
+                col++;       
             }
+            col++;
+                
+            
+        }
+      String Titles[] = new String[fReader.parkList.length+2];
 
-        }*/
-        String[][] Values = {
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" },
-            { "S1", "S2", "S3", "S4", "S5", "S6","S7" }
-        };
-      String Titles[] = { "Match", "Time", "Park1", "Park2", "Park3", "Park4","Park5"};
-      JTable table = new JTable(Values, Titles);
+      Titles[0]="Match";
+      Titles[1]="Time";
+      int count=2;
+      for(int x=0;x<fReader.parkList.length;x++){
+          Titles[count]=fReader.parkList[x];
+          count++;
+      }
+      JTable table = new JTable(Display, Titles);
       Font font = new Font("Verdana", Font.PLAIN, 12);
       table.setFont(font);
       table.setRowHeight(30);

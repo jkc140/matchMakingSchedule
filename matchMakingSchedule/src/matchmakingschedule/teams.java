@@ -32,48 +32,48 @@ public class teams {
     public boolean prevOpp[];
     public int teamSlotNum;
 
-    
+    //function to get the name of the team
     public void getName(String[][] fileInfo,int teamNum){
         name=fileInfo[teamNum][0];
     }
+    //function to get the preferances of the team
     public void getPref(String[][] fileInfo,int teamNum){
         pref=new String[fileInfo[teamNum].length-1];
         for(int x=1;x<=teamNum;x++){
             pref[x-1]=fileInfo[teamNum][x];
         }
     }
-    public void getOpponent(){
-        
-    }
-    public void getTime(){
-        
-    }
-    public void getLoc(){
-        
-    }
+
+        //function to get the initiate the array of matches of the team   
     public void matchInit(int TEMP){
         match=new String[TEMP][4];
     }
-    public void getPrevPlayed(int slotNum){
-        //prevOpp[];
-    }
+    //function to get the initiate the array of preferances of the team
     public void prefInit(int max){
         pref=new String[max];
     }
-    public void initVal(int teamNum/*,int slotNum*/){
+        //function to get the initiate values of the team
+    public void initVal(int teamNum){
         prevOpp=new boolean[teamNum-1];
         for(int x=0;x<prevOpp.length;x++){
             prevOpp[x]=false;
         }
-        //teamSlotNum=slotNum;
     }
-    /*public void getOppPlayed(String team,int slotNum){
-        if(teamSlotNum>slotNum){
-            prevOpp[slotNum]=true;
+    //function to reset the previous opponents when all the team have been selected
+    public void reset(){
+        int count=0;
+        for(int x=0;x<prevOpp.length;x++){
+            if(prevOpp[x]==true){
+                count++;
+            }
+            else{
+                count=0;
+            }
         }
-        else if(teamSlotNum<=slotNum){
-            prevOpp[slotNum-1]=true;
+        if(count==prevOpp.length){
+            for(int x=0;x<prevOpp.length;x++){
+                prevOpp[x]=false;
+            }
         }
-        
-    }*/ //DONT NEED AS IT WAS HARD CODED INTO THE RANDOM OPP CLASS
+    }
 }
