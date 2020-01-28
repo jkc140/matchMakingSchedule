@@ -96,6 +96,7 @@ public class fileReader {
         }	
 	
         int skipCount=3+numTeam+2;
+
         String tempHolder=rawData[skipCount];
             while(tempHolder.indexOf("/")!=-1){
                 tempHolder=tempHolder.replaceFirst("/", "0");
@@ -107,6 +108,7 @@ public class fileReader {
             startDate=rawData[skipCount].split("/");
             endDate=rawData[skipCount+1].split("/");
             matchNum=rawData[skipCount+2].split("/");
+
 
     }	
   
